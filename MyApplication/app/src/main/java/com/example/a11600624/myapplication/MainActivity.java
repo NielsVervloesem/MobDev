@@ -15,9 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAboutPage(View view){
         Intent startNewActivity = new Intent(this, DisplayAboutPage.class);
-
-
         startActivity(startNewActivity);
     }
 
+    public void openCharacterSelectorPage(View view) {
+        Intent startNewActivity = new Intent(this, SelectCharacterPage.class);
+        startActivity(startNewActivity);
+    }
 }
