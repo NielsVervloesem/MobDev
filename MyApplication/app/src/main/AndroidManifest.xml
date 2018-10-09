@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayAboutPage"></activity>
+        <activity android:name=".DisplayAboutPage" />
+        <activity android:name=".SelectCharacterPage"></activity>
     </application>
 
 </manifest>

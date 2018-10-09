@@ -1,0 +1,154 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\ba017e9847c61e97ad3763c5a066774c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\1f4224354b363588a369b6662a638561\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\4cc220b536cdbfcd27c685d7dcd7642f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f9958df83b8fad26c5e7c14658bba286\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\adcf8901cb68fa22fdb996100995bc02\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\4f291ae12ee2e21daf42210fca75fe07\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\3bed66ac5a91c134cead059304f50750\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\07e8699c376c9efe9aed37d0b156f33d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\4a80c07e14cfa21170ec65acff50352c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\2b788d7277c0fef0ede3744138c33867\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\db712942eb39231b20b7cf092484ae26\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\359126edc0bc02f044e2b05bd881094b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\4982bf59906ca2df64c1e2352bca4c4f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\5c1e1f5c6ef4473acf9e4a730774c888\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\04c17cb9600a77e9039a6ce8722eea12\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\37d7b9f6f5625e4c031580fa94aafca5\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\22842439fdcec90a3f5133df01c57895\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\681e11d1dff7b6822b50ee45e73abf8e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\48b08cd2c619f4c6ef0b1b859b4daf49\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\5ecb6416853c72192e717100cdf22290\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\412111a01a112c4afea86a3ba43b55a8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\d37cc12146004894dd0d3e1081bc6b2b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\e91f0790835b43c397e24273a8d241b3\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\ce4b06795ac9892b99b289b72c82d6a6\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\662e16189595c5b46bd4d4ff1e586894\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\8a3177ddbd10f68c92eef5f77dbbdaad\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\70b4b0ed48c43ab6a9a472a89dc24b85\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:3:5-40
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\1f4224354b363588a369b6662a638561\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\1f4224354b363588a369b6662a638561\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\37d7b9f6f5625e4c031580fa94aafca5\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\37d7b9f6f5625e4c031580fa94aafca5\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\22842439fdcec90a3f5133df01c57895\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\22842439fdcec90a3f5133df01c57895\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\37d7b9f6f5625e4c031580fa94aafca5\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:11:9-40
+activity#be.pxl.student.helloworld.MainActivity
+ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\ba017e9847c61e97ad3763c5a066774c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\ba017e9847c61e97ad3763c5a066774c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\1f4224354b363588a369b6662a638561\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\1f4224354b363588a369b6662a638561\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\4cc220b536cdbfcd27c685d7dcd7642f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\4cc220b536cdbfcd27c685d7dcd7642f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f9958df83b8fad26c5e7c14658bba286\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f9958df83b8fad26c5e7c14658bba286\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\adcf8901cb68fa22fdb996100995bc02\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\adcf8901cb68fa22fdb996100995bc02\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\4f291ae12ee2e21daf42210fca75fe07\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\4f291ae12ee2e21daf42210fca75fe07\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\3bed66ac5a91c134cead059304f50750\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\3bed66ac5a91c134cead059304f50750\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\07e8699c376c9efe9aed37d0b156f33d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\07e8699c376c9efe9aed37d0b156f33d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\4a80c07e14cfa21170ec65acff50352c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\4a80c07e14cfa21170ec65acff50352c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\2b788d7277c0fef0ede3744138c33867\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\2b788d7277c0fef0ede3744138c33867\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\db712942eb39231b20b7cf092484ae26\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\db712942eb39231b20b7cf092484ae26\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\359126edc0bc02f044e2b05bd881094b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\359126edc0bc02f044e2b05bd881094b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\4982bf59906ca2df64c1e2352bca4c4f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\4982bf59906ca2df64c1e2352bca4c4f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\5c1e1f5c6ef4473acf9e4a730774c888\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\5c1e1f5c6ef4473acf9e4a730774c888\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\04c17cb9600a77e9039a6ce8722eea12\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\04c17cb9600a77e9039a6ce8722eea12\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\37d7b9f6f5625e4c031580fa94aafca5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\37d7b9f6f5625e4c031580fa94aafca5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\22842439fdcec90a3f5133df01c57895\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\22842439fdcec90a3f5133df01c57895\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\681e11d1dff7b6822b50ee45e73abf8e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\681e11d1dff7b6822b50ee45e73abf8e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\48b08cd2c619f4c6ef0b1b859b4daf49\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\48b08cd2c619f4c6ef0b1b859b4daf49\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\5ecb6416853c72192e717100cdf22290\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\5ecb6416853c72192e717100cdf22290\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\412111a01a112c4afea86a3ba43b55a8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\412111a01a112c4afea86a3ba43b55a8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\d37cc12146004894dd0d3e1081bc6b2b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\d37cc12146004894dd0d3e1081bc6b2b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\e91f0790835b43c397e24273a8d241b3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\e91f0790835b43c397e24273a8d241b3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\ce4b06795ac9892b99b289b72c82d6a6\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\ce4b06795ac9892b99b289b72c82d6a6\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\662e16189595c5b46bd4d4ff1e586894\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\662e16189595c5b46bd4d4ff1e586894\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\8a3177ddbd10f68c92eef5f77dbbdaad\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\8a3177ddbd10f68c92eef5f77dbbdaad\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\70b4b0ed48c43ab6a9a472a89dc24b85\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Siebe\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\70b4b0ed48c43ab6a9a472a89dc24b85\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Siebe\Documents\GitHub\MobDev\HelloWorld\app\src\main\AndroidManifest.xml
