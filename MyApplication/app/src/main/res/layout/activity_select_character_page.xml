@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#151515"
-    tools:context=".SelectCharacterPage">
+    android:background="#202020"
+    tools:context=".Pages.SelectCharacterPage">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/slideViewPager"
+        android:id="@+id/slideView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/heading"
+        android:layout_alignTop="@+id/selectHeading"
         android:layout_alignBottom="@+id/dotsLayout"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="0dp"></android.support.v4.view.ViewPager>
@@ -23,18 +23,50 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:padding="20dp"></LinearLayout>
+        android:paddingBottom="10dp"></LinearLayout>
 
     <TextView
-        android:id="@+id/heading"
+        android:id="@+id/selectHeading"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:background="#ed1d24"
+        android:background="#9f0013"
         android:gravity="center"
         android:text="SELECT CHARACTER"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="#9f0013"
+        android:text="Next"
+        android:onClick="openFightPage"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="#9f0013"
+        android:onClick="openMainPage"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </RelativeLayout>
