@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/slide_image"
+        android:id="@+id/slideImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -19,29 +19,29 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/slide_heading"
+        android:id="@+id/slideHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/slide_image"
+        android:layout_below="@+id/slideImage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="HEADING"
-        android:textSize="30sp"
+        android:text="Loading..."
+        android:textSize="28sp"
         android:textColor="@color/white"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/slide_description"
+        android:id="@+id/slideDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/slide_heading"
+        android:layout_below="@+id/slideHeading"
         android:layout_marginTop="10dp"
         android:paddingLeft="30dp"
         android:paddingTop="5dp"
         android:paddingRight="30dp"
         android:paddingBottom="10dp"
-        android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+        android:text="Loading..."
         android:textColor="@color/white"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>
