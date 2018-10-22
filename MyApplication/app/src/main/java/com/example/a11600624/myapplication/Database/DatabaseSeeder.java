@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import com.example.a11600624.myapplication.Models.Character;
 import com.example.a11600624.myapplication.Network.NetworkUtils;
+import com.example.a11600624.myapplication.Pages.MainActivity;
 import com.example.a11600624.myapplication.R;
 
 import org.json.JSONArray;
@@ -18,14 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseSeeder {
-    private Context context;
     private DatabaseHelper databaseHelper;
     private List<Character> characters;
-    private int currentIndex;
+    private int counterTasks = 0;
 
     public DatabaseSeeder(Context context) {
-        this.context = context;
-
         databaseHelper = new DatabaseHelper(context);
         databaseHelper.dropCharacterTable();
 
@@ -33,18 +31,20 @@ public class DatabaseSeeder {
         characters.add(new Character("Thanos",R.drawable.thanos_character));
         characters.add(new Character("Thor",R.drawable.thor_character));
         characters.add(new Character("Hulk",R.drawable.hulk_character));
+        characters.add(new Character("Iron Man",R.drawable.ironman_character));
+        characters.add(new Character("Captain America", R.drawable.captainamerica_character));
 
         try {
             for(Character c : characters) {
-                URL characterApiUrl = new URL(context.getResources().getString(R.string.marvel_api_url) + "&name=" + c.getName());
-                new characterApiTask().execute(characterApiUrl);
+                URL characterApiUrl = new URL(context.getResources().getString(R.string.marvel_api_url) + "&name=" + c.getName().replace(' ', '+'));
+                new getCharacterFromApiTask().execute(characterApiUrl);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
 
-    public class characterApiTask extends AsyncTask<URL, Void, String> {
+    public class getCharacterFromApiTask extends AsyncTask<URL, Void, String> {
         @Override
         protected String doInBackground(URL... urls) {
             URL searchUrl = urls[0];
@@ -65,20 +65,34 @@ public class DatabaseSeeder {
                     JSONObject data = json.getJSONObject("data");
                     JSONArray resultsArray = data.getJSONArray("results");
                     JSONObject resultsJson = resultsArray.getJSONObject(0);
-
-                    String name = resultsJson.getString("name");
-                    String description = resultsJson.getString("description");
-
                     JSONObject thumbnail = resultsJson.getJSONObject("thumbnail");
 
-                    String thumbnailurl = thumbnail.getString("path") + "/portrait_xlarge." + thumbnail.getString("extension");
+                    String name = resultsJson.getString("name");
 
-                    databaseHelper.addCharacter(name,description,thumbnailurl);
+                    for (Character c : characters) {
+                        if(name.equals(c.getName())) {
+                            c.setDescription(resultsJson.getString("description"));
+                            c.setThumbnailSource(thumbnail.getString("path") + "/portrait_xlarge." + thumbnail.getString("extension"));
+
+                            databaseHelper.addCharacter(c);
+                        }
+                    }
+
+                    counterTasks++;
+
+                    if(counterTasks == characters.size()) {
+                        Done();
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
+        }
+
+        private void Done() {
+            MainActivity.nextButton.setText("PLAY");
+            MainActivity.nextButton.setEnabled(true);
         }
     }
 }
