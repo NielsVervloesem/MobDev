@@ -1,7 +1,5 @@
 package com.example.a11600624.myapplication.Network;
 
-import android.os.AsyncTask;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
