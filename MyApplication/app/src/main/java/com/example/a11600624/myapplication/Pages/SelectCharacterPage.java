@@ -12,9 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Components.SliderAdapter;
+import com.example.a11600624.myapplication.Database.DatabaseHelper;
 import com.example.a11600624.myapplication.R;
 
 public class SelectCharacterPage extends AppCompatActivity {
+    private DatabaseHelper databaseHelper;
 
     private ViewPager mSlideViewPager;
     private LinearLayout mDotLayout;
@@ -35,12 +37,14 @@ public class SelectCharacterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_character_page);
 
-        mSlideViewPager = (ViewPager) findViewById(R.id.slideView);
-        mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
-        mHeading = (TextView) findViewById(R.id.selectHeading);
+        databaseHelper = new DatabaseHelper(this);
 
-        mNextButton = (Button) findViewById(R.id.nextButton);
-        mBackButton = (Button) findViewById(R.id.backButton);
+        mSlideViewPager = findViewById(R.id.slideView);
+        mDotLayout = findViewById(R.id.dotsLayout);
+        mHeading = findViewById(R.id.selectHeading);
+
+        mNextButton = findViewById(R.id.nextButton);
+        mBackButton = findViewById(R.id.backButton);
 
         sliderAdapter = new SliderAdapter(this);
 
@@ -60,7 +64,7 @@ public class SelectCharacterPage extends AppCompatActivity {
     }
 
     public void addDotsIndicator(int position) {
-        mDots = new TextView[3];
+        mDots = new TextView[databaseHelper.getNumberOfCharacters()];
         mDotLayout.removeAllViews();
 
         for(int i = 0; i < mDots.length; i++) {

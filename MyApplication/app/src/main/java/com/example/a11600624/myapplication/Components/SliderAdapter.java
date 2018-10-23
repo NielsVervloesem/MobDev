@@ -29,15 +29,9 @@ public class SliderAdapter extends PagerAdapter {
         databaseHelper = new DatabaseHelper(context);
     }
 
-    public int[] slide_images = {
-            R.drawable.thanos_character,
-            R.drawable.thor_character,
-            R.drawable.hulk_character
-    };
-
     @Override
     public int getCount() {
-        return slide_images.length;
+        return databaseHelper.getNumberOfCharacters();
     }
 
     @Override
@@ -50,18 +44,19 @@ public class SliderAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_layout, container, false);
 
-        slideImageView = (ImageView) view.findViewById(R.id.slideImage);
-        slideHeading = (TextView) view.findViewById(R.id.slideHeading);
-        slideDescription = (TextView) view.findViewById(R.id.slideDescription);
-
-        slideImageView.setImageResource(slide_images[position]);
+        slideImageView = view.findViewById(R.id.slideImage);
+        slideHeading = view.findViewById(R.id.slideHeading);
+        slideDescription = view.findViewById(R.id.slideDescription);
 
         Cursor data = databaseHelper.getCharacterById(position+1);
 
         if (data.moveToFirst()) {
-            slideHeading.setText(data.getString(1).toUpperCase());
+            slideImageView.setImageResource(Integer.parseInt(data.getString(4)));
+            slideHeading.setText(data.getString(1));
             slideDescription.setText(data.getString(2));
         }
+
+        data.close();
 
         container.addView(view);
         return view;
