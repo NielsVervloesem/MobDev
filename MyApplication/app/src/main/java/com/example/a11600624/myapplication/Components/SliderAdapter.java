@@ -56,6 +56,8 @@ public class SliderAdapter extends PagerAdapter {
             slideDescription.setText(data.getString(2));
         }
 
+        data.close();
+
         container.addView(view);
         return view;
     }

@@ -11,6 +11,7 @@ import com.example.a11600624.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseSeeder databaseSeeder;
+    Boolean firstInitialisation = false;
 
     public static Button nextButton;
 
@@ -19,11 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        databaseSeeder = new DatabaseSeeder(this);
+        if(!firstInitialisation) {
+            databaseSeeder = new DatabaseSeeder(this);
 
-        nextButton = findViewById(R.id.button4);
-        nextButton.setEnabled(false);
-        nextButton.setText("Loading characters...");
+            nextButton = findViewById(R.id.button4);
+            nextButton.setEnabled(false);
+            nextButton.setText("Loading characters...");
+
+            firstInitialisation = true;
+        }
     }
 
     public void openAboutPage(View view) {
