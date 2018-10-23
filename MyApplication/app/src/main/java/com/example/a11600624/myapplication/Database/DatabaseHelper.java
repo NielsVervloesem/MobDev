@@ -57,13 +57,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_NAME;
         Cursor data = db.rawQuery(query, null);
 
-        return data.getCount();
+        int count = data.getCount();
+        data.close();
+
+        return count;
     }
 
     public Cursor getAllCharacters() {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
         Cursor data = db.rawQuery(query, null);
+
         return data;
     }
 
@@ -71,6 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = " + id;
         Cursor data = db.rawQuery(query, null);
+
         return data;
     }
 
