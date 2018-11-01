@@ -183,11 +183,8 @@ public class FightPage extends AppCompatActivity {
         opponentHealth.setText(oppHealth + "/100");
         characterHealth.setText(myHealth + "/100");
 
-
         oppDamageText.setText(""+myDamage);
         myDamageText.setText(""+oppenentDamage);
-
-
 
     }
 
