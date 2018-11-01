@@ -3,6 +3,7 @@ package com.example.a11600624.myapplication.Pages;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
@@ -148,12 +149,35 @@ public class FightPage extends AppCompatActivity {
 
                         updateHealth(clicksCounter);
                         highscoreCheck(clicksCounter);
+
+                        checkForWinner();
                     }
                 };
                 timer.start();
             }
         });
     }
+
+    private void checkForWinner() {
+        Intent startNewActivity = new Intent(this, EndScreen.class);
+        Bundle b = new Bundle();
+
+        if(myHealth < 0 || oppHealth < 0){
+                if(myHealth < oppHealth){
+                    b.putString("status", "You lose!");
+                } else {
+                    if(myHealth > oppHealth){
+                        b.putString("status", "You win!");
+                    } else {
+                        b.putString("status", "It's a draw!");
+                    }
+                }
+            startNewActivity.putExtras(b); //Put your id to your next Intent
+            startActivity(startNewActivity);
+            }
+        }
+
+
 
     private void playFlashingAnimation() {
         final Animation flashAnimation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
@@ -196,13 +220,9 @@ public class FightPage extends AppCompatActivity {
 
     private void highscoreCheck(int clicksCounter) {
         Cursor mCursor = database.query(HighscoreContract.Highscore.TABLE_NAME, null, null, null, null, null, HighscoreContract.Highscore.COLUMN_SCORE);
-
         mCursor.getCount();
-
         mCursor.moveToFirst();
-
         int lowest = mCursor.getInt(mCursor.getColumnIndex("score"));
-
         if (mCursor.getCount() < 15) {
             promptUser(clicksCounter);
         } else {
@@ -213,7 +233,6 @@ public class FightPage extends AppCompatActivity {
         }
 
         mCursor.close();
-
     }
 
     private void promptUser(final int clicksCounter) {

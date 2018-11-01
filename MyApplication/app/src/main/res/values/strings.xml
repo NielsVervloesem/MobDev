@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Marvel Battle Simulator App</string>
     <string name="aboutButton">About</string>
-    <string name="about_text">Deze App is gemaakt voor het vak Mobile Development in kader van onze opleiding Toegepaste Informatica aan de hogeschool PXL onder leidng van Steven Palmaers, Phillipe Haldermans en Niek Vandael.\n Niels Vervloesem en Siebe Corstjens</string>
+    <string name="about_text">Deze App is gemaakt voor het vak Mobile Development in kader van onze opleiding Toegepaste Informatica aan de hogeschool PXL onder leidng van Steven Palmaers, Phillipe Haldermans en Niek Vandael. In deze app zijn concepten zoals API calls, database, recyclerviews, master details... uitgewerkt.\n\n \n Niels Vervloesem en Siebe Corstjens</string>
     <string name="characterSelectorButton">Play</string>
     <string name="names">name</string>
     <string name="marvel_api_url">https://gateway.marvel.com/v1/public/characters?apikey=1d81280bb5040d5376599647cde6da9e&amp;hash=804f451c2440d22822d02dabc8e88c9c&amp;ts=1</string>
+    <string name="about">About</string>
 </resources>
