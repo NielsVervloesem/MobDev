@@ -1,17 +1,20 @@
 package com.example.a11600624.myapplication.Pages;
 
 import android.database.Cursor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Database.DatabaseHelper;
-
 import com.example.a11600624.myapplication.R;
 import com.squareup.picasso.Picasso;
 
@@ -42,6 +45,8 @@ public class FightPage extends AppCompatActivity {
     int timeLeft;
     int clicksCounter;
 
+
+    MediaPlayer mp = new MediaPlayer();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,6 +87,7 @@ public class FightPage extends AppCompatActivity {
         fight = (Button) findViewById(R.id.click);
         start = (Button) findViewById(R.id.start);
 
+        mp = MediaPlayer.create(this, R.raw.punch);
 
         fight.setEnabled(false);
         score.setVisibility(View.INVISIBLE);
@@ -117,6 +123,9 @@ public class FightPage extends AppCompatActivity {
                     @Override
                     public void onFinish() {
                         resetButtonsAndTextViews();
+                        playSound();
+                        playFlashingAnimation();
+
                         updateHealth(clicksCounter);
                         writeToDataBase();
                     }
@@ -124,6 +133,22 @@ public class FightPage extends AppCompatActivity {
                 timer.start();
             }
         });
+    }
+
+    private void playFlashingAnimation() {
+        final Animation flashAnimation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        flashAnimation.setDuration(500); // duration - half a second
+        flashAnimation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        flashAnimation.setRepeatCount(2); // Repeat animation infinitely
+        flashAnimation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        characterView.startAnimation(flashAnimation);
+        opponentView.startAnimation(flashAnimation);
+    }
+
+    private void playSound() {
+
+            mp.start();
+
     }
 
     private void resetButtonsAndTextViews() {
