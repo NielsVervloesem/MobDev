@@ -2,6 +2,7 @@
 
 package com.example.a11600624.myapplication.Pages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,7 +43,7 @@ public class SettingsPage extends AppCompatActivity {
         radioButton3 = findViewById(R.id.radioButton3);
 
 
-        button = findViewById(R.id.button5);
+        button = findViewById(R.id.saveChanges);
 
         if (globalVariable.isMute()) {
             checkBox.setChecked(true);
@@ -51,7 +52,6 @@ public class SettingsPage extends AppCompatActivity {
 
         }
 
-        button.setText(""+globalVariable.getModifier());
         switch ("" + globalVariable.getModifier()) {
             case "0.8":
                 radioButton.setChecked(true);
@@ -85,6 +85,14 @@ public class SettingsPage extends AppCompatActivity {
             globalVariable.setModifier(1.2);
         }
 
+
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
+
+    public void openBackGroundSelector(View view) {
+        Intent i = new Intent(this, BackgroundMasterDetail.class);
+        startActivity(i);
 
     }
 }

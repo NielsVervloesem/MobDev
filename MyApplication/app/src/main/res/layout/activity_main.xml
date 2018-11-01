@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="94dp"
         android:onClick="openHighscore"
-        android:text="Highscore" />
+        android:text="@string/highscore" />
 
     <Button
         android:id="@+id/button3"
@@ -66,7 +66,7 @@
         android:layout_marginLeft="138dp"
         android:layout_marginBottom="-106dp"
         android:onClick="openInstellingenPage"
-        android:text="Instellingen" />
+        android:text="@string/settings" />
 
 
 

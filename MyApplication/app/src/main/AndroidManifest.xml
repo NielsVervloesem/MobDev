@@ -26,6 +26,8 @@
         <activity android:name=".Pages.SettingsPage" />
         <activity android:name=".Pages.HighscorePage" />
         <activity android:name=".Pages.EndScreen" />
+        <activity android:name=".Pages.BackgroundMasterDetail" />
+
 
 
 

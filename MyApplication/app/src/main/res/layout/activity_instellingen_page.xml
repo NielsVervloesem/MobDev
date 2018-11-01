@@ -1,70 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <LinearLayout
         android:layout_width="368dp"
         android:layout_height="551dp"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="8dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textSize="20dp"/>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/saveChanges"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save changes"
+            android:gravity="center"
             android:onClick="saveChanges"
-            />
-
-        <Switch
-            android:id="@+id/muteSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MUTE" />
+            android:text="@string/save_changes" />
 
         <CheckBox
             android:id="@+id/muteCheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MUTE" />
+            android:text="@string/mute" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Difficulty level"/>
+            android:text="@string/difficulty_level" />
 
         <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/radio"
-            >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/radioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="I'm a baby!" />
+                android:text="@string/i_m_a_baby" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bring it on!" />
+                android:text="@string/bring_it_on" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="I want my mommy" />
+                android:text="@string/i_want_my_mommy" />
         </RadioGroup>
+
+        <Button
+            android:id="@+id/backgroundButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="openBackGroundSelector"
+            android:text="@string/battle_background"/>
+
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

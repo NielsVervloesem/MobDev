@@ -16,14 +16,13 @@
             android:id="@+id/textview_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-
-           />
+            android:gravity="left" />
 
         <TextView
             android:id="@+id/textview_score"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="right" />
     </LinearLayout>
 
 
