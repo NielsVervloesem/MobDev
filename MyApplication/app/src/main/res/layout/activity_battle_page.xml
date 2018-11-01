@@ -34,6 +34,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="" />
+
+                <TextView
+                    android:id="@+id/oppDamage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
             </LinearLayout>
 
             <ImageView
@@ -110,6 +116,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView" />
+                <TextView
+                    android:id="@+id/myDamage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

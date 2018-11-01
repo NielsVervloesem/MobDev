@@ -33,6 +33,9 @@ public class FightPage extends AppCompatActivity {
     private TextView characterHealth;
     private TextView opponentHealth;
 
+    private TextView myDamageText;
+    private TextView oppDamageText;
+
     TextView time;
     TextView score;
     Button fight;
@@ -68,6 +71,8 @@ public class FightPage extends AppCompatActivity {
         characterHealth.setText(myHealth + "/100");
         opponentHealth = findViewById(R.id.oppenentHealth);
         opponentHealth.setText(oppHealth + "/100");
+        oppDamageText = findViewById(R.id.oppDamage);
+        myDamageText = findViewById(R.id.myDamage);
 
 
         Cursor data = databaseHelper.getCharacterById(SelectCharacterPage.id + 1);
@@ -167,16 +172,22 @@ public class FightPage extends AppCompatActivity {
     }
 
     private void updateHealth(int clicksCounter) {
-        double modifier = 1;
+        double modifier = globalVariable.getModifier();
 
         int myDamage = rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10;
-        int oppenentDamage = (int) (modifier * rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10);
+        int oppenentDamage = (int) (modifier *rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10);
 
         myHealth -= oppenentDamage;
         oppHealth -= myDamage;
 
         opponentHealth.setText(oppHealth + "/100");
         characterHealth.setText(myHealth + "/100");
+
+
+        oppDamageText.setText(""+myDamage);
+        myDamageText.setText(""+oppenentDamage);
+
+
 
     }
 
