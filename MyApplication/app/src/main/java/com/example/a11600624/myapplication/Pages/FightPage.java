@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Database.DatabaseHelper;
+import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
 import com.squareup.picasso.Picasso;
 
@@ -46,12 +47,16 @@ public class FightPage extends AppCompatActivity {
     int clicksCounter;
 
 
+    GlobalSettings globalVariable = new GlobalSettings();
+
     MediaPlayer mp = new MediaPlayer();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_page);
+
+        globalVariable = (GlobalSettings) getApplicationContext();
 
         databaseHelper = new DatabaseHelper(this);
 
@@ -147,7 +152,10 @@ public class FightPage extends AppCompatActivity {
 
     private void playSound() {
 
+        if(!(globalVariable.isMute())){
             mp.start();
+
+        }
 
     }
 
