@@ -12,7 +12,6 @@ import java.util.Random;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "characters";
-
     private static final String COL1 = "ID";
     private static final String COL2 = "name";
     private static final String COL3 = "description";

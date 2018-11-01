@@ -1,20 +1,28 @@
 package com.example.a11600624.myapplication.Pages;
 
+import android.app.AlertDialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Database.DatabaseHelper;
+import com.example.a11600624.myapplication.Database.HighscoreContract;
+import com.example.a11600624.myapplication.Database.HighscoreDBHelper;
 import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
 import com.squareup.picasso.Picasso;
@@ -49,6 +57,8 @@ public class FightPage extends AppCompatActivity {
     int timeLeft;
     int clicksCounter;
 
+    private SQLiteDatabase database;
+
 
     GlobalSettings globalVariable = new GlobalSettings();
 
@@ -60,6 +70,8 @@ public class FightPage extends AppCompatActivity {
         setContentView(R.layout.activity_battle_page);
 
         globalVariable = (GlobalSettings) getApplicationContext();
+        HighscoreDBHelper dbHelper = new HighscoreDBHelper(this);
+        database = dbHelper.getWritableDatabase();
 
         databaseHelper = new DatabaseHelper(this);
 
@@ -91,7 +103,6 @@ public class FightPage extends AppCompatActivity {
         }
         data.close();
 
-
         score = (TextView) findViewById(R.id.score);
         time = (TextView) findViewById(R.id.time);
         fight = (Button) findViewById(R.id.click);
@@ -102,7 +113,6 @@ public class FightPage extends AppCompatActivity {
         fight.setEnabled(false);
         score.setVisibility(View.INVISIBLE);
         time.setVisibility(View.INVISIBLE);
-
 
         fight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +147,7 @@ public class FightPage extends AppCompatActivity {
                         playFlashingAnimation();
 
                         updateHealth(clicksCounter);
-                        writeToDataBase();
+                        highscoreCheck(clicksCounter);
                     }
                 };
                 timer.start();
@@ -156,12 +166,9 @@ public class FightPage extends AppCompatActivity {
     }
 
     private void playSound() {
-
-        if(!(globalVariable.isMute())){
+        if (!(globalVariable.isMute())) {
             mp.start();
-
         }
-
     }
 
     private void resetButtonsAndTextViews() {
@@ -175,7 +182,7 @@ public class FightPage extends AppCompatActivity {
         double modifier = globalVariable.getModifier();
 
         int myDamage = rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10;
-        int oppenentDamage = (int) (modifier *rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10);
+        int oppenentDamage = (int) (modifier * rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10);
 
         myHealth -= oppenentDamage;
         oppHealth -= myDamage;
@@ -183,13 +190,64 @@ public class FightPage extends AppCompatActivity {
         opponentHealth.setText(oppHealth + "/100");
         characterHealth.setText(myHealth + "/100");
 
-        oppDamageText.setText(""+myDamage);
-        myDamageText.setText(""+oppenentDamage);
+        oppDamageText.setText("" + myDamage);
+        myDamageText.setText("" + oppenentDamage);
+    }
+
+    private void highscoreCheck(int clicksCounter) {
+        Cursor mCursor = database.query(HighscoreContract.Highscore.TABLE_NAME, null, null, null, null, null, HighscoreContract.Highscore.COLUMN_SCORE);
+
+        mCursor.getCount();
+
+        mCursor.moveToFirst();
+
+        int lowest = mCursor.getInt(mCursor.getColumnIndex("score"));
+
+        if (mCursor.getCount() < 15) {
+            promptUser(clicksCounter);
+        } else {
+            if (clicksCounter > lowest) {
+                database.execSQL("DELETE FROM " + HighscoreContract.Highscore.TABLE_NAME + " WHERE " + HighscoreContract.Highscore.COLUMN_SCORE + "='" + lowest + "'");
+                promptUser(clicksCounter);
+            }
+        }
+
+        mCursor.close();
 
     }
 
-    private void writeToDataBase() {
-        //TODO
+    private void promptUser(final int clicksCounter) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("New Highscore, enter your name!");
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                updateDatabase(input.getText().toString(), clicksCounter);
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private void updateDatabase(String name, int clicksCounter) {
+
+        if (name.trim().length() == 0) {
+            return;
+        }
+
+        ContentValues cv = new ContentValues();
+        cv.put(HighscoreContract.Highscore.COLUMN_NAME, name);
+        cv.put(HighscoreContract.Highscore.COLUMN_SCORE, clicksCounter);
+        database.insert(HighscoreContract.Highscore.TABLE_NAME, null, cv);
 
     }
 }

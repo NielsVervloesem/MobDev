@@ -42,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openInstellingenPage(View view) {
-        Intent startNewActivity = new Intent(this, InstellingenPage.class);
+        Intent startNewActivity = new Intent(this, SettingsPage.class);
         startActivity(startNewActivity);
     }
 
 
-
+    public void openHighscore(View view) {
+        Intent startNewActivity = new Intent(this, HighscorePage.class);
+        startActivity(startNewActivity);
+    }
 }

@@ -22,6 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="94dp"
+        android:onClick="openHighscore"
         android:text="Highscore" />
 
     <Button

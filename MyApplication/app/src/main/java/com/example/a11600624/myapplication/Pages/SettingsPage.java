@@ -14,7 +14,7 @@ import android.widget.Switch;
 import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
 
-public class InstellingenPage extends AppCompatActivity {
+public class SettingsPage extends AppCompatActivity {
 
     private Switch aSwitch;
     private CheckBox checkBox;

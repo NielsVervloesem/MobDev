@@ -23,7 +23,9 @@
         <activity android:name=".Pages.DisplayAboutPage" />
         <activity android:name=".Pages.SelectCharacterPage"></activity>
         <activity android:name=".Pages.FightPage" />
-        <activity android:name=".Pages.InstellingenPage" />
+        <activity android:name=".Pages.SettingsPage" />
+        <activity android:name=".Pages.HighscorePage" />
+
 
 
     </application>
