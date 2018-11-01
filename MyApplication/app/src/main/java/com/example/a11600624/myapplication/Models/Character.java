@@ -1,10 +1,16 @@
 package com.example.a11600624.myapplication.Models;
 
-public class Character {
+import android.app.Application;
+
+public class Character extends Application {
     private String name;
     private String description;
     private String thumbnailSource;
     private int imageSource;
+
+    public Character(){
+
+    }
 
     public Character(String name, int imageSource) {
         this.name = name;

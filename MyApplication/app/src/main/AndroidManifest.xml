@@ -19,6 +19,8 @@
         <activity android:name=".Pages.DisplayAboutPage" />
         <activity android:name=".Pages.SelectCharacterPage"></activity>
         <activity android:name=".Pages.FightPage" />
+
+
     </application>
 
 </manifest>

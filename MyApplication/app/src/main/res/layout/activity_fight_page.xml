@@ -20,18 +20,30 @@
             android:orientation="horizontal"
             tools:ignore="Suspicious0dp">
 
-            <TextView
-                android:id="@+id/opponentName"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/opponentView"
-                android:layout_toLeftOf="@+id/opponentView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:padding="5dp"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="45sp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/opponentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/opponentView"
+                    android:layout_toLeftOf="@+id/opponentView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:padding="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/opponentHealth"/>
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/opponentView"
@@ -45,14 +57,51 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="20"
             android:orientation="horizontal"
             tools:ignore="Suspicious0dp">
 
-        </LinearLayout>
+            <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Time left: 0"
+                    android:textAlignment="center"
+                    android:visibility="invisible"
+                android:layout_weight="0.33"
+                />
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="FIGHT!"
+                android:layout_weight="0.33"
+               />
+            <Button
+                android:id="@+id/click"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="HIT!"
+                android:layout_weight="0.33"
+                />
+            <TextView
+                    android:id="@+id/score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="hits: 0"
+                    android:textAlignment="center"
+                    android:visibility="invisible"
+                android:layout_weight="0.33"
+                />
+
+            </TableRow>
+
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -61,28 +110,45 @@
             android:orientation="horizontal"
             tools:ignore="Suspicious0dp">
 
-            <TextView
-                android:id="@+id/characterName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/characterView"
-                android:layout_toEndOf="@+id/characterView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textAlignment="center"
-                android:padding="5dp"
-                android:textColor="@color/white"
-                android:textSize="45sp" />
-
-            <ImageView
-                android:id="@+id/characterView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/characterView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/characterName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/characterView"
+                        android:layout_toEndOf="@+id/characterView"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="45sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:id="@+id/myHealth"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </RelativeLayout>
     </LinearLayout>

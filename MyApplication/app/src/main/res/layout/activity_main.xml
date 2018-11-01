@@ -15,24 +15,24 @@
             android:layout_marginTop="28dp"
             app:srcCompat="@drawable/marvel" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="41dp"
-            android:text="Highscore" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="94dp"
+        android:text="Highscore" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="117dp"
-            android:onClick="openAboutPage"
-            android:text="@string/aboutButton" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="151dp"
+        android:onClick="openAboutPage"
+        android:text="@string/aboutButton" />
 
     <Button
         android:id="@+id/button4"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="198dp"
+        android:layout_marginBottom="214dp"
         android:onClick="openCharacterSelectorPage"
         android:text="@string/characterSelectorButton" />
 
@@ -53,5 +53,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginStart="33dp"
         android:layout_marginLeft="33dp" />
+
+
 
 </RelativeLayout>

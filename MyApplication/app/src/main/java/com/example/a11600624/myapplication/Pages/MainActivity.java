@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(!firstInitialisation) {
+        if (!firstInitialisation) {
             databaseSeeder = new DatabaseSeeder(this);
 
             nextButton = findViewById(R.id.button4);
@@ -40,4 +40,6 @@ public class MainActivity extends AppCompatActivity {
         Intent startNewActivity = new Intent(this, SelectCharacterPage.class);
         startActivity(startNewActivity);
     }
+
+
 }
