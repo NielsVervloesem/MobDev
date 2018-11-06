@@ -1,11 +1,9 @@
 package com.example.a11600624.myapplication.Pages;
 
 import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -22,9 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Database.DatabaseHelper;
-import com.example.a11600624.myapplication.Database.HighscoreContract;
-import com.example.a11600624.myapplication.Database.HighscoreDBHelper;
 import com.example.a11600624.myapplication.Models.GlobalSettings;
+import com.example.a11600624.myapplication.Models.Highscore;
 import com.example.a11600624.myapplication.R;
 import com.squareup.picasso.Picasso;
 
@@ -58,9 +55,6 @@ public class FightPage extends AppCompatActivity {
     int timeLeft;
     int clicksCounter;
 
-    private SQLiteDatabase database;
-
-
     GlobalSettings globalVariable = new GlobalSettings();
 
     MediaPlayer mp = new MediaPlayer();
@@ -71,9 +65,6 @@ public class FightPage extends AppCompatActivity {
         setContentView(R.layout.activity_battle_page);
 
         globalVariable = (GlobalSettings) getApplicationContext();
-        HighscoreDBHelper dbHelper = new HighscoreDBHelper(this);
-        database = dbHelper.getWritableDatabase();
-
         databaseHelper = new DatabaseHelper(this);
 
         characterView = findViewById(R.id.characterView);
@@ -86,7 +77,6 @@ public class FightPage extends AppCompatActivity {
         opponentHealth.setText(oppHealth + "/100");
         oppDamageText = findViewById(R.id.oppDamage);
         myDamageText = findViewById(R.id.myDamage);
-
 
         Cursor data = databaseHelper.getCharacterById(SelectCharacterPage.id + 1);
 
@@ -162,22 +152,20 @@ public class FightPage extends AppCompatActivity {
         Intent startNewActivity = new Intent(this, EndScreen.class);
         Bundle b = new Bundle();
 
-        if(myHealth < 0 || oppHealth < 0){
-                if(myHealth < oppHealth){
-                    b.putString("status", "You lose!");
+        if(myHealth < 0 || oppHealth < 0) {
+            if(myHealth < oppHealth) {
+                b.putString("status", "You lose!");
+            } else {
+                if(myHealth > oppHealth){
+                    b.putString("status", "You win!");
                 } else {
-                    if(myHealth > oppHealth){
-                        b.putString("status", "You win!");
-                    } else {
-                        b.putString("status", "It's a draw!");
-                    }
+                    b.putString("status", "It's a draw!");
                 }
+            }
             startNewActivity.putExtras(b); //Put your id to your next Intent
             startActivity(startNewActivity);
-            }
         }
-
-
+    }
 
     private void playFlashingAnimation() {
         final Animation flashAnimation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
@@ -219,20 +207,22 @@ public class FightPage extends AppCompatActivity {
     }
 
     private void highscoreCheck(int clicksCounter) {
-        Cursor mCursor = database.query(HighscoreContract.Highscore.TABLE_NAME, null, null, null, null, null, HighscoreContract.Highscore.COLUMN_SCORE);
-        mCursor.getCount();
-        mCursor.moveToFirst();
-        int lowest = mCursor.getInt(mCursor.getColumnIndex("score"));
-        if (mCursor.getCount() < 15) {
+        Cursor data = databaseHelper.getAllHighscoresDesc();
+
+        if (data.getCount() < 15) {
             promptUser(clicksCounter);
-        } else {
-            if (clicksCounter > lowest) {
-                database.execSQL("DELETE FROM " + HighscoreContract.Highscore.TABLE_NAME + " WHERE " + HighscoreContract.Highscore.COLUMN_SCORE + "='" + lowest + "'");
-                promptUser(clicksCounter);
+
+            if (data.moveToFirst()) {
+                int lowest = data.getInt(data.getColumnIndex("score"));
+
+                if (clicksCounter > lowest) {
+                    databaseHelper.deleteHighscoreByScore(lowest);
+                    promptUser(clicksCounter);
+                }
             }
         }
 
-        mCursor.close();
+        data.close();
     }
 
     private void promptUser(final int clicksCounter) {
@@ -244,8 +234,10 @@ public class FightPage extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                updateDatabase(input.getText().toString(), clicksCounter);
-
+                if(!input.getText().toString().equals("")) {
+                    Highscore highscore = new Highscore(input.getText().toString(), clicksCounter);
+                    databaseHelper.addHighscore(highscore);
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -255,18 +247,5 @@ public class FightPage extends AppCompatActivity {
             }
         });
         builder.show();
-    }
-
-    private void updateDatabase(String name, int clicksCounter) {
-
-        if (name.trim().length() == 0) {
-            return;
-        }
-
-        ContentValues cv = new ContentValues();
-        cv.put(HighscoreContract.Highscore.COLUMN_NAME, name);
-        cv.put(HighscoreContract.Highscore.COLUMN_SCORE, clicksCounter);
-        database.insert(HighscoreContract.Highscore.TABLE_NAME, null, cv);
-
     }
 }
