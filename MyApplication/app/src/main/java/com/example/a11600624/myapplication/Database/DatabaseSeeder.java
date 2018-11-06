@@ -25,7 +25,7 @@ public class DatabaseSeeder {
 
     public DatabaseSeeder(Context context) {
         databaseHelper = new DatabaseHelper(context);
-        databaseHelper.dropCharacterTable();
+        databaseHelper.dropAllTables();
 
         characters = new ArrayList<>();
         characters.add(new Character("Thanos",R.drawable.thanos_character));

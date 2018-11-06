@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startNewActivity);
     }
 
-
     public void openHighscore(View view) {
         Intent startNewActivity = new Intent(this, HighscorePage.class);
         startActivity(startNewActivity);

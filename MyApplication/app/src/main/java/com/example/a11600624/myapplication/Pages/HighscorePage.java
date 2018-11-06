@@ -8,40 +8,24 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.a11600624.myapplication.Components.HighscoreAdapter;
-import com.example.a11600624.myapplication.Database.HighscoreContract;
-import com.example.a11600624.myapplication.Database.HighscoreDBHelper;
+import com.example.a11600624.myapplication.Database.DatabaseHelper;
 import com.example.a11600624.myapplication.R;
 
 public class HighscorePage extends AppCompatActivity {
-    private SQLiteDatabase database;
+    private DatabaseHelper databaseHelper;
     private HighscoreAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore_page);
 
-        HighscoreDBHelper dbHelper = new HighscoreDBHelper(this);
-        database = dbHelper.getWritableDatabase();
+        databaseHelper = new DatabaseHelper(this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new HighscoreAdapter(this, getAllItems());
+        adapter = new HighscoreAdapter(this, databaseHelper.getAllHighscoresDesc());
         recyclerView.setAdapter(adapter);
-        adapter.swapCursor(getAllItems());
-
-    }
-
-    private Cursor getAllItems() {
-        return database.query(
-                HighscoreContract.Highscore.TABLE_NAME,
-                null,
-                null,
-                null,
-                null,
-                null,
-                HighscoreContract.Highscore.COLUMN_SCORE + " DESC"
-        );
+        adapter.swapCursor(databaseHelper.getAllHighscoresDesc());
     }
 }

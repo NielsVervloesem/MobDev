@@ -8,18 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.a11600624.myapplication.Database.HighscoreContract;
 import com.example.a11600624.myapplication.R;
 
 
 public class HighscoreAdapter extends RecyclerView.Adapter<HighscoreAdapter.HighscoreViewHolder> {
-
     private Context mContext;
     private Cursor mCursor;
 
     public HighscoreAdapter(Context context, Cursor cursor){
-    mContext = context;
-    mCursor = cursor;
+        mContext = context;
+        mCursor = cursor;
     }
 
     public class HighscoreViewHolder extends RecyclerView.ViewHolder{
@@ -34,13 +32,11 @@ public class HighscoreAdapter extends RecyclerView.Adapter<HighscoreAdapter.High
         }
     }
 
-
     @Override
     public HighscoreViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         View view = layoutInflater.inflate(R.layout.highscore_item, parent, false);
         return new HighscoreViewHolder(view);
-
     }
 
     @Override
@@ -49,13 +45,11 @@ public class HighscoreAdapter extends RecyclerView.Adapter<HighscoreAdapter.High
             return;
         }
 
-        String name = mCursor.getString(mCursor.getColumnIndex(HighscoreContract.Highscore.COLUMN_NAME));
-        String score = mCursor.getString(mCursor.getColumnIndex(HighscoreContract.Highscore.COLUMN_SCORE));
-
+        String name = mCursor.getString(1);
+        String score = mCursor.getString(2);
 
         holder.nameText.setText(name);
         holder.scoreText.setText(score);
-
     }
 
     @Override
