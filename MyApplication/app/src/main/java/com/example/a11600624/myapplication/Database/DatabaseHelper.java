@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void deleteHighscoreByScore(int score) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_HIGHSCORES + " WHERE " + HIGHSCORES_COL3 + " = " + score);
+        db.execSQL("DELETE TOP 1 FROM " + TABLE_HIGHSCORES + " WHERE " + HIGHSCORES_COL3 + " = " + score);
     }
 
     public void addHighscore(Highscore highscore) {

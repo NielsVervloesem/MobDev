@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -58,6 +59,29 @@ public class FightPage extends AppCompatActivity {
     GlobalSettings globalVariable = new GlobalSettings();
 
     MediaPlayer mp = new MediaPlayer();
+    String oppUri;
+    String charUri;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("characterHealth", characterHealth.getText().toString());
+        outState.putString("opponentHealth", opponentHealth.getText().toString());
+
+        outState.putString("characterName", characterName.getText().toString());
+        outState.putString("opponentName", opponentName.getText().toString());
+
+        outState.putString("myDamage", myDamageText.getText().toString());
+        outState.putString("oppDamage", oppDamageText.getText().toString());
+
+        outState.putInt("myHealth", myHealth);
+        outState.putInt("oppHealth", oppHealth);
+
+        outState.putString("oppIMG", oppUri);
+        outState.putString("charIMG", charUri);
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,7 +91,6 @@ public class FightPage extends AppCompatActivity {
         globalVariable = (GlobalSettings) getApplicationContext();
         databaseHelper = new DatabaseHelper(this);
         mp = MediaPlayer.create(this, R.raw.punch);
-
 
         characterView = findViewById(R.id.characterView);
         opponentView = findViewById(R.id.opponentView);
@@ -83,7 +106,9 @@ public class FightPage extends AppCompatActivity {
         Cursor data = databaseHelper.getCharacterById(SelectCharacterPage.id + 1);
 
         if (data.moveToFirst()) {
-            Picasso.get().load(data.getString(3)).into(characterView);
+            charUri = data.getString(3);
+            Picasso.get().load(charUri).into(characterView);
+
             characterName.setText(data.getString(1));
         }
         data.close();
@@ -91,7 +116,8 @@ public class FightPage extends AppCompatActivity {
         data = databaseHelper.getRandomCharacter(SelectCharacterPage.id + 1);
 
         if (data.moveToFirst()) {
-            Picasso.get().load(data.getString(3)).into(opponentView);
+            oppUri = data.getString(3);
+            Picasso.get().load(oppUri).into(opponentView);
             opponentName.setText(data.getString(1));
         }
         data.close();
@@ -101,10 +127,29 @@ public class FightPage extends AppCompatActivity {
         fight = (Button) findViewById(R.id.click);
         start = (Button) findViewById(R.id.start);
 
-
         fight.setEnabled(false);
         score.setVisibility(View.INVISIBLE);
         time.setVisibility(View.INVISIBLE);
+
+        if (savedInstanceState != null) {
+            characterHealth.setText(savedInstanceState.getString("characterHealth"));
+            opponentHealth.setText(savedInstanceState.getString("opponentHealth"));
+
+            characterName.setText(savedInstanceState.getString("characterName"));
+            opponentName.setText(savedInstanceState.getString("opponentName"));
+
+            myHealth = savedInstanceState.getInt("myHealth");
+            oppHealth = savedInstanceState.getInt("oppHealth");
+
+            myDamageText.setText(savedInstanceState.getString("myDamage"));
+            oppDamageText.setText(savedInstanceState.getString("oppDamage"));
+
+            oppUri = savedInstanceState.getString("oppIMG");
+            charUri = savedInstanceState.getString("charIMG");
+            Picasso.get().load(charUri).into(characterView);
+            Picasso.get().load(oppUri).into(opponentView);
+
+        }
 
         fight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +188,8 @@ public class FightPage extends AppCompatActivity {
                 timer.start();
             }
         });
+
+
     }
 
 
@@ -187,20 +234,20 @@ public class FightPage extends AppCompatActivity {
         });
 
     }
-    
+
     private void updateHealth() {
         double modifier = globalVariable.getModifier();
 
-        int myDamage = rand.nextInt(clicksCounter) +10;
-        int oppenentDamage = (int) (modifier * (rand.nextInt(clicksCounter) +10));
+        int myDamage = rand.nextInt(clicksCounter + 1) + 10;
+        int oppenentDamage = (int) (modifier * (rand.nextInt(clicksCounter + 1) + 10));
 
         myHealth -= oppenentDamage;
-        oppHealth -= myDamage * 1.5;
+        oppHealth -= myDamage;
 
         opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
         characterHealth.setText(myHealth + getString(R.string.maxHealth));
-        oppDamageText.setText( myDamage +getString(R.string.damage));
-        myDamageText.setText(oppenentDamage+ getString(R.string.damage));
+        oppDamageText.setText(myDamage + getString(R.string.damage));
+        myDamageText.setText(oppenentDamage + getString(R.string.damage));
     }
 
     private void highscoreCheck() {
@@ -209,8 +256,7 @@ public class FightPage extends AppCompatActivity {
 
         if (data.getCount() < 15) {
             isHighscore = true;
-        }
-        else {
+        } else {
             if (data.moveToFirst()) {
                 int lowest = data.getInt(data.getColumnIndex("score"));
                 if (clicksCounter > lowest) {
@@ -225,7 +271,7 @@ public class FightPage extends AppCompatActivity {
 
 
     private void promptUser(Boolean isHighscore) {
-        if(isHighscore){
+        if (isHighscore) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.NewHighscore));
             final EditText input = new EditText(this);
@@ -234,7 +280,7 @@ public class FightPage extends AppCompatActivity {
             builder.setPositiveButton(getString(R.string.Ok), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if(!input.getText().toString().equals("")) {
+                    if (!input.getText().toString().equals("")) {
                         Highscore highscore = new Highscore(input.getText().toString(), clicksCounter);
                         databaseHelper.addHighscore(highscore);
                         checkForWinner();
@@ -260,11 +306,11 @@ public class FightPage extends AppCompatActivity {
         Intent startNewActivity = new Intent(this, EndScreen.class);
         Bundle b = new Bundle();
 
-        if(myHealth <= 0 || oppHealth <= 0) {
-            if(myHealth < oppHealth) {
+        if (myHealth <= 0 || oppHealth <= 0) {
+            if (myHealth < oppHealth) {
                 b.putInt("fightResult", -1);
             } else {
-                if(myHealth > oppHealth){
+                if (myHealth > oppHealth) {
                     b.putInt("fightResult", 1);
                 } else {
                     b.putInt("fightResult", 0);
@@ -274,9 +320,6 @@ public class FightPage extends AppCompatActivity {
             startActivity(startNewActivity);
         }
     }
-
-
-
 
 
 }
