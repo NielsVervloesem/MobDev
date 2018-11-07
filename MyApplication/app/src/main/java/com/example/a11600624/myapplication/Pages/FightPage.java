@@ -66,6 +66,8 @@ public class FightPage extends AppCompatActivity {
 
         globalVariable = (GlobalSettings) getApplicationContext();
         databaseHelper = new DatabaseHelper(this);
+        mp = MediaPlayer.create(this, R.raw.punch);
+
 
         characterView = findViewById(R.id.characterView);
         opponentView = findViewById(R.id.opponentView);
@@ -99,7 +101,6 @@ public class FightPage extends AppCompatActivity {
         fight = (Button) findViewById(R.id.click);
         start = (Button) findViewById(R.id.start);
 
-        mp = MediaPlayer.create(this, R.raw.punch);
 
         fight.setEnabled(false);
         score.setVisibility(View.INVISIBLE);
@@ -193,8 +194,8 @@ public class FightPage extends AppCompatActivity {
         int myDamage = rand.nextInt(clicksCounter) +10;
         int oppenentDamage = (int) (modifier * (rand.nextInt(clicksCounter) +10));
 
-        myHealth -= 100;
-        oppHealth -= myDamage;
+        myHealth -= oppenentDamage;
+        oppHealth -= myDamage * 1.5;
 
         opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
         characterHealth.setText(myHealth + getString(R.string.maxHealth));
@@ -261,12 +262,12 @@ public class FightPage extends AppCompatActivity {
 
         if(myHealth <= 0 || oppHealth <= 0) {
             if(myHealth < oppHealth) {
-                b.putString("status", "You lose!");
+                b.putInt("fightResult", -1);
             } else {
                 if(myHealth > oppHealth){
-                    b.putString("status", "You win!");
+                    b.putInt("fightResult", 1);
                 } else {
-                    b.putString("status", "It's a draw!");
+                    b.putInt("fightResult", 0);
                 }
             }
             startNewActivity.putExtras(b); //Put your id to your next Intent
