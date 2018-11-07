@@ -41,8 +41,8 @@ public class DatabaseSeeder {
         }
 
         if(databaseHelper.getAllCharacters().getCount() == 0) {
-            MainActivity.nextButton.setEnabled(false);
-            MainActivity.nextButton.setText("Loading characters...");
+            MainActivity.playButton.setEnabled(false);
+            MainActivity.playButton.setText("Loading characters...");
 
             characters = new ArrayList<>();
             characters.add(new Character("Thanos",R.drawable.thanos_character));
@@ -109,8 +109,8 @@ public class DatabaseSeeder {
         }
 
         private void Done() {
-            MainActivity.nextButton.setText("PLAY");
-            MainActivity.nextButton.setEnabled(true);
+            MainActivity.playButton.setText("PLAY");
+            MainActivity.playButton.setEnabled(true);
         }
     }
 }

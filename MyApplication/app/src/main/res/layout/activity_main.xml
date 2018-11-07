@@ -4,71 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pages.MainActivity">
+    tools:context=".Pages.MainActivity"
+    android:background="@drawable/avengers_1_background">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="211dp"
-            android:layout_height="270dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="28dp"
-            app:srcCompat="@drawable/marvel" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:weightSum="100">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="94dp"
-        android:onClick="openHighscore"
-        android:text="@string/highscore" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:orientation="horizontal"
+            tools:ignore="Suspicious0dp">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp"
-        android:onClick="openAboutPage"
-        android:text="@string/aboutButton" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="50dp"
+                android:textStyle="bold"
+                android:text="Marvel Battle Simulator"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textFontWeight="bold"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                 />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="214dp"
-        android:onClick="openCharacterSelectorPage"
-        android:text="@string/characterSelectorButton" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:orientation="horizontal"
+            tools:ignore="Suspicious0dp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginLeft="138dp"
-        android:layout_marginBottom="-106dp"
-        android:onClick="openInstellingenPage"
-        android:text="@string/settings" />
+            <Button
+                android:id="@+id/playButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:onClick="openCharacterSelectorPage"
+                android:width="140dp"
+                android:layout_margin="10dp"
+                android:background="#9f0013"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="@string/characterSelectorButton" />
 
+            <Button
+                android:id="@+id/aboutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/playButton"
+                android:layout_margin="10dp"
+                android:width="140dp"
+                android:onClick="openAboutPage"
+                android:background="#9f0013"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="@string/aboutButton" />
 
+            <Button
+                android:id="@+id/highscoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/aboutButton"
+                android:layout_margin="10dp"
+                android:width="140dp"
+                android:onClick="openHighscore"
+                android:background="#9f0013"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="@string/highscore" />
 
-
+            <Button
+                android:id="@+id/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/highscoreButton"
+                android:layout_centerHorizontal="true"
+                android:width="140dp"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:onClick="openInstellingenPage"
+                android:background="#9f0013"
+                android:text="@string/settings" />
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>
