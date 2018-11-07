@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.a11600624.myapplication.Models.Background;
 import com.example.a11600624.myapplication.Models.Character;
 import com.example.a11600624.myapplication.Models.Highscore;
 
@@ -16,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CHARACTERS = "characters";
     private static final String TABLE_HIGHSCORES = "highscores";
+    private static final String TABLE_BACKGROUNDS = "backgrounds";
 
     private static final String CHARACTERS_COL1 = "ID";
     private static final String CHARACTERS_COL2 = "name";
@@ -27,6 +29,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String HIGHSCORES_COL2 = "name";
     private static final String HIGHSCORES_COL3 = "score";
 
+    private static final String BACKGROUNDS_COL1 = "ID";
+    private static final String BACKGROUNDS_COL2 = "title";
+    private static final String BACKGROUNDS_COL3 = "description";
+    private static final String BACKGROUNDS_COL4 = "imagesource";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -34,14 +40,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_CHARACTERS + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + CHARACTERS_COL2 + " TEXT, " + CHARACTERS_COL3 + " TEXT, " + CHARACTERS_COL4 + " TEXT, " + CHARACTERS_COL5 + " TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_HIGHSCORES + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + HIGHSCORES_COL2 + " TEXT, " + HIGHSCORES_COL3 + " TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_CHARACTERS + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + CHARACTERS_COL2 + " TEXT, " + CHARACTERS_COL3 + " TEXT, " + CHARACTERS_COL4 + " TEXT, " + CHARACTERS_COL5 + " TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_HIGHSCORES + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + HIGHSCORES_COL2 + " TEXT, " + HIGHSCORES_COL3 + " TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_BACKGROUNDS + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + BACKGROUNDS_COL2 + " TEXT, " + BACKGROUNDS_COL3 + " TEXT, " + BACKGROUNDS_COL4 + " TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHARACTERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_HIGHSCORES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BACKGROUNDS);
         onCreate(db);
     }
 
@@ -129,10 +137,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_HIGHSCORES, null, contentValues);
     }
 
-    public void dropAllTables() {
+    public void addBackground(Background background) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(BACKGROUNDS_COL2, background.getTitle());
+        contentValues.put(BACKGROUNDS_COL3, background.getDescription());
+        contentValues.put(BACKGROUNDS_COL4, background.getImageSource());
+
+        db.insert(TABLE_BACKGROUNDS, null, contentValues);
+    }
+
+    public Cursor getAllBackgrounds() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_BACKGROUNDS;
+        Cursor data = db.rawQuery(query, null);
+
+        return data;
+    }
+
+    public void dropCharacterTable() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHARACTERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_HIGHSCORES);
         onCreate(db);
     }
 }

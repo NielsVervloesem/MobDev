@@ -3,6 +3,7 @@ package com.example.a11600624.myapplication.Database;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.example.a11600624.myapplication.Models.Background;
 import com.example.a11600624.myapplication.Models.Character;
 import com.example.a11600624.myapplication.Network.NetworkUtils;
 import com.example.a11600624.myapplication.Pages.MainActivity;
@@ -21,11 +22,25 @@ import java.util.List;
 public class DatabaseSeeder {
     private DatabaseHelper databaseHelper;
     private List<Character> characters;
+    private List<Background> backgrounds;
     private int counterTasks = 0;
 
     public DatabaseSeeder(Context context) {
         databaseHelper = new DatabaseHelper(context);
-        databaseHelper.dropAllTables();
+
+        databaseHelper.dropCharacterTable();
+
+        if(databaseHelper.getAllBackgrounds().getCount() == 0) {
+            backgrounds = new ArrayList<>();
+            backgrounds.add(new Background(context.getResources().getString(R.string.avengers_title), context.getResources().getString(R.string.avengers_description), R.drawable.avengers_background));
+            backgrounds.add(new Background(context.getResources().getString(R.string.captain_america_shield_title), context.getResources().getString(R.string.captain_america_shield_description), R.drawable.captain_america_background));
+            backgrounds.add(new Background(context.getResources().getString(R.string.iron_man_suit_title), context.getResources().getString(R.string.iron_man_suit_description), R.drawable.iron_man_background));
+            backgrounds.add(new Background(context.getResources().getString(R.string.shield_title), context.getResources().getString(R.string.shield_description), R.drawable.shield_background));
+
+            for(Background b : backgrounds) {
+                databaseHelper.addBackground(b);
+            }
+        }
 
         characters = new ArrayList<>();
         characters.add(new Character("Thanos",R.drawable.thanos_character));

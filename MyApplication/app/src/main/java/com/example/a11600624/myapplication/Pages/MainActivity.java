@@ -11,7 +11,7 @@ import com.example.a11600624.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseSeeder databaseSeeder;
-    Boolean firstInitialisation = false;
+    static Boolean firstInitialisation = false;
 
     public static Button nextButton;
 
