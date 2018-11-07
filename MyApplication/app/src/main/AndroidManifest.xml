@@ -27,10 +27,7 @@
         <activity android:name=".Pages.HighscorePage" />
         <activity android:name=".Pages.EndScreen" />
         <activity android:name=".Pages.BackgroundMasterDetail" />
-
-
-
-
+        <activity android:name=".Pages.BackgroundDetail" />
 
     </application>
 
