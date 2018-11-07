@@ -1,6 +1,7 @@
 package com.example.a11600624.myapplication.Pages;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,7 +11,11 @@ import com.example.a11600624.myapplication.Database.DatabaseSeeder;
 import com.example.a11600624.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
-    public static Button nextButton;
+    public static Button playButton;
+    private Button aboutButton;
+    private Button highscoreButton;
+    private Button settingsButton;
+    private Typeface tf1;
     private DatabaseSeeder databaseSeeder;
 
     @Override
@@ -18,8 +23,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nextButton = findViewById(R.id.button4);
+        playButton = findViewById(R.id.playButton);
+        aboutButton = findViewById(R.id.aboutButton);
+        highscoreButton = findViewById(R.id.highscoreButton);
+        settingsButton = findViewById(R.id.settingsButton);
+
         databaseSeeder = new DatabaseSeeder(this);
+
+        tf1 = Typeface.createFromAsset(getAssets(), "font1.ttf");
+
+        playButton.setTypeface(tf1);
+        aboutButton.setTypeface(tf1);
+        highscoreButton.setTypeface(tf1);
+        settingsButton.setTypeface(tf1);
     }
 
     public void openAboutPage(View view) {
