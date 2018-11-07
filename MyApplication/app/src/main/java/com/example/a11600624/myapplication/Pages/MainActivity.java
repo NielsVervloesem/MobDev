@@ -10,25 +10,16 @@ import com.example.a11600624.myapplication.Database.DatabaseSeeder;
 import com.example.a11600624.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseSeeder databaseSeeder;
-    static Boolean firstInitialisation = false;
-
     public static Button nextButton;
+    private DatabaseSeeder databaseSeeder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (!firstInitialisation) {
-            databaseSeeder = new DatabaseSeeder(this);
-
-            nextButton = findViewById(R.id.button4);
-            nextButton.setEnabled(false);
-            nextButton.setText("Loading characters...");
-
-            firstInitialisation = true;
-        }
+        nextButton = findViewById(R.id.button4);
+        databaseSeeder = new DatabaseSeeder(this);
     }
 
     public void openAboutPage(View view) {

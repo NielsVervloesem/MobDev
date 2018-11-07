@@ -28,8 +28,6 @@ public class DatabaseSeeder {
     public DatabaseSeeder(Context context) {
         databaseHelper = new DatabaseHelper(context);
 
-        databaseHelper.dropCharacterTable();
-
         if(databaseHelper.getAllBackgrounds().getCount() == 0) {
             backgrounds = new ArrayList<>();
             backgrounds.add(new Background(context.getResources().getString(R.string.avengers_title), context.getResources().getString(R.string.avengers_description), R.drawable.avengers_background));
@@ -42,20 +40,25 @@ public class DatabaseSeeder {
             }
         }
 
-        characters = new ArrayList<>();
-        characters.add(new Character("Thanos",R.drawable.thanos_character));
-        characters.add(new Character("Thor",R.drawable.thor_character));
-        characters.add(new Character("Hulk",R.drawable.hulk_character));
-        characters.add(new Character("Iron Man",R.drawable.ironman_character));
-        characters.add(new Character("Captain America", R.drawable.captainamerica_character));
+        if(databaseHelper.getAllCharacters().getCount() == 0) {
+            MainActivity.nextButton.setEnabled(false);
+            MainActivity.nextButton.setText("Loading characters...");
 
-        try {
-            for(Character c : characters) {
-                URL characterApiUrl = new URL(context.getResources().getString(R.string.marvel_api_url) + "&name=" + c.getName().replace(' ', '+'));
-                new getCharacterFromApiTask().execute(characterApiUrl);
+            characters = new ArrayList<>();
+            characters.add(new Character("Thanos",R.drawable.thanos_character));
+            characters.add(new Character("Thor",R.drawable.thor_character));
+            characters.add(new Character("Hulk",R.drawable.hulk_character));
+            characters.add(new Character("Iron Man",R.drawable.ironman_character));
+            characters.add(new Character("Captain America", R.drawable.captainamerica_character));
+
+            try {
+                for(Character c : characters) {
+                    URL characterApiUrl = new URL(context.getResources().getString(R.string.marvel_api_url) + "&name=" + c.getName().replace(' ', '+'));
+                    new getCharacterFromApiTask().execute(characterApiUrl);
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         }
     }
 
