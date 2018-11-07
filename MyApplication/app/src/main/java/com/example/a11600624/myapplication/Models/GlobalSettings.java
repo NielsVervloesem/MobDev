@@ -3,7 +3,6 @@ package com.example.a11600624.myapplication.Models;
 import android.app.Application;
 
 public class GlobalSettings extends Application {
-
     private double modifier = 1;
     private String background;
     private boolean mute = false;

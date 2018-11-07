@@ -15,4 +15,13 @@
     <string name="settings">Settings</string>
     <string name="highscore">Highscore</string>
     <string name="battle_background">Battle Background</string>
+
+    <string name="avengers_title">The Avengers</string>
+    <string name="avengers_description">The Avengers, also known as the Heroes of New York, are a team of extraordinary individuals, either with superpowers or other special characteristics. Its purpose is to protect world stability from inner or extraterrestrial threats, and to work with the peaceful interests of the whole world rather than a specific country or organization</string>
+    <string name="captain_america_shield_title">Captain America</string>
+    <string name="captain_america_shield_description">Rogers indestructible shield has often been referred to as being an Adamantium-Vibranium alloy. This is a result of an erroneous entry in the Official Handbook of the Marvel Universe entry on Captain America, which propagated into future stories</string>
+    <string name="iron_man_suit_title">Iron man</string>
+    <string name="iron_man_suit_description">The Mark 42 (XLII), known by its code name "Extremis" or the “Prodigal Son” is an Autonomous Prehensile Propulsion Suit Prototype was the forty second armor, as well as one of the many newly built suits, created by Tony Stark sometime after the events of The Avengers.</string>
+    <string name="shield_title">S.H.I.E.L.D.</string>
+    <string name="shield_description">The Strategic Homeland Intervention, Enforcement and Logistics Division, better known by its acronym S.H.I.E.L.D., is an American extra-governmental military counter-terrorism and intelligence agency, tasked with maintaining both national and global security.</string>
 </resources>
