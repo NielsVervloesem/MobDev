@@ -24,4 +24,10 @@
     <string name="iron_man_suit_description">The Mark 42 (XLII), known by its code name "Extremis" or the “Prodigal Son” is an Autonomous Prehensile Propulsion Suit Prototype was the forty second armor, as well as one of the many newly built suits, created by Tony Stark sometime after the events of The Avengers.</string>
     <string name="shield_title">S.H.I.E.L.D.</string>
     <string name="shield_description">The Strategic Homeland Intervention, Enforcement and Logistics Division, better known by its acronym S.H.I.E.L.D., is an American extra-governmental military counter-terrorism and intelligence agency, tasked with maintaining both national and global security.</string>
+    <string name="maxHealth">/100 Health</string>
+    <string name="clicks">Clicks:</string>
+    <string name="damage">Damage</string>
+    <string name="NewHighscore">New Highscore, enter your name!</string>
+    <string name="Ok">OK</string>
+    <string name="Cancel">Cancel</string>
 </resources>

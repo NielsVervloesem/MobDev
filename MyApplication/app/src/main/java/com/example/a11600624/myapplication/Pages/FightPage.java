@@ -72,9 +72,9 @@ public class FightPage extends AppCompatActivity {
         characterName = findViewById(R.id.characterName);
         opponentName = findViewById(R.id.opponentName);
         characterHealth = findViewById(R.id.characterHealth);
-        characterHealth.setText(myHealth + "/100");
+        characterHealth.setText(myHealth + getString(R.string.maxHealth));
         opponentHealth = findViewById(R.id.oppenentHealth);
-        opponentHealth.setText(oppHealth + "/100");
+        opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
         oppDamageText = findViewById(R.id.oppDamage);
         myDamageText = findViewById(R.id.myDamage);
 
@@ -109,7 +109,7 @@ public class FightPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clicksCounter++;
-                score.setText("Clicks: " + clicksCounter);
+                score.setText(getString(R.string.clicks) + clicksCounter);
             }
         });
 
@@ -122,7 +122,7 @@ public class FightPage extends AppCompatActivity {
                 score.setVisibility(View.VISIBLE);
                 time.setVisibility(View.VISIBLE);
                 start.setEnabled(false);
-                score.setText("Clicks: " + clicksCounter);
+                score.setText(getString(R.string.clicks) + clicksCounter);
 
                 timer = new CountDownTimer(5000, 1000) {
                     @Override
@@ -137,10 +137,6 @@ public class FightPage extends AppCompatActivity {
                         playSound();
                         playFlashingAnimation();
 
-                        updateHealth(clicksCounter);
-                        highscoreCheck(clicksCounter);
-
-                        checkForWinner();
                     }
                 };
                 timer.start();
@@ -148,11 +144,122 @@ public class FightPage extends AppCompatActivity {
         });
     }
 
+
+    private void resetButtonsAndTextViews() {
+        fight.setEnabled(false);
+        score.setVisibility(View.INVISIBLE);
+        time.setVisibility(View.INVISIBLE);
+        start.setEnabled(true);
+    }
+
+    private void playSound() {
+        if (!(globalVariable.isMute())) {
+            mp.start();
+        }
+    }
+
+    private void playFlashingAnimation() {
+        final Animation flashAnimation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        flashAnimation.setDuration(500); // duration - half a second
+        flashAnimation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        flashAnimation.setRepeatCount(2); // Repeat animation infinitely
+        flashAnimation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
+        characterView.startAnimation(flashAnimation);
+        opponentView.startAnimation(flashAnimation);
+
+        flashAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                updateHealth();
+                highscoreCheck();
+            }
+        });
+
+    }
+    
+    private void updateHealth() {
+        double modifier = globalVariable.getModifier();
+
+        int myDamage = rand.nextInt(clicksCounter) +10;
+        int oppenentDamage = (int) (modifier * (rand.nextInt(clicksCounter) +10));
+
+        myHealth -= 100;
+        oppHealth -= myDamage;
+
+        opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
+        characterHealth.setText(myHealth + getString(R.string.maxHealth));
+        oppDamageText.setText( myDamage +getString(R.string.damage));
+        myDamageText.setText(oppenentDamage+ getString(R.string.damage));
+    }
+
+    private void highscoreCheck() {
+        Cursor data = databaseHelper.getAllHighscoresAsc();
+        Boolean isHighscore = false;
+
+        if (data.getCount() < 15) {
+            isHighscore = true;
+        }
+        else {
+            if (data.moveToFirst()) {
+                int lowest = data.getInt(data.getColumnIndex("score"));
+                if (clicksCounter > lowest) {
+                    databaseHelper.deleteHighscoreByScore(lowest);
+                    isHighscore = true;
+                }
+            }
+        }
+        data.close();
+        promptUser(isHighscore);
+    }
+
+
+    private void promptUser(Boolean isHighscore) {
+        if(isHighscore){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(getString(R.string.NewHighscore));
+            final EditText input = new EditText(this);
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+            builder.setPositiveButton(getString(R.string.Ok), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if(!input.getText().toString().equals("")) {
+                        Highscore highscore = new Highscore(input.getText().toString(), clicksCounter);
+                        databaseHelper.addHighscore(highscore);
+                        checkForWinner();
+                    }
+                }
+            });
+            builder.setNegativeButton(getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                    checkForWinner();
+
+                }
+            });
+            builder.show();
+        } else {
+            checkForWinner();
+        }
+
+    }
+
     private void checkForWinner() {
         Intent startNewActivity = new Intent(this, EndScreen.class);
         Bundle b = new Bundle();
 
-        if(myHealth < 0 || oppHealth < 0) {
+        if(myHealth <= 0 || oppHealth <= 0) {
             if(myHealth < oppHealth) {
                 b.putString("status", "You lose!");
             } else {
@@ -167,85 +274,8 @@ public class FightPage extends AppCompatActivity {
         }
     }
 
-    private void playFlashingAnimation() {
-        final Animation flashAnimation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
-        flashAnimation.setDuration(500); // duration - half a second
-        flashAnimation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
-        flashAnimation.setRepeatCount(2); // Repeat animation infinitely
-        flashAnimation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
-        characterView.startAnimation(flashAnimation);
-        opponentView.startAnimation(flashAnimation);
-    }
 
-    private void playSound() {
-        if (!(globalVariable.isMute())) {
-            mp.start();
-        }
-    }
 
-    private void resetButtonsAndTextViews() {
-        fight.setEnabled(false);
-        score.setVisibility(View.INVISIBLE);
-        time.setVisibility(View.INVISIBLE);
-        start.setEnabled(true);
-    }
 
-    private void updateHealth(int clicksCounter) {
-        double modifier = globalVariable.getModifier();
 
-        int myDamage = rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10;
-        int oppenentDamage = (int) (modifier * rand.nextInt((clicksCounter + 10) - (clicksCounter - 10)) + clicksCounter - 10);
-
-        myHealth -= oppenentDamage;
-        oppHealth -= myDamage;
-
-        opponentHealth.setText(oppHealth + "/100");
-        characterHealth.setText(myHealth + "/100");
-
-        oppDamageText.setText("" + myDamage);
-        myDamageText.setText("" + oppenentDamage);
-    }
-
-    private void highscoreCheck(int clicksCounter) {
-        Cursor data = databaseHelper.getAllHighscoresDesc();
-
-        if (data.getCount() < 15) {
-            promptUser(clicksCounter);
-
-            if (data.moveToFirst()) {
-                int lowest = data.getInt(data.getColumnIndex("score"));
-
-                if (clicksCounter > lowest) {
-                    databaseHelper.deleteHighscoreByScore(lowest);
-                    promptUser(clicksCounter);
-                }
-            }
-        }
-
-        data.close();
-    }
-
-    private void promptUser(final int clicksCounter) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("New Highscore, enter your name!");
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if(!input.getText().toString().equals("")) {
-                    Highscore highscore = new Highscore(input.getText().toString(), clicksCounter);
-                    databaseHelper.addHighscore(highscore);
-                }
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        builder.show();
-    }
 }

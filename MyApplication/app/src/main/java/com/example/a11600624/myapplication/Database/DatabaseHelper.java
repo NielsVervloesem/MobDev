@@ -122,6 +122,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public Cursor getAllHighscoresAsc() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_HIGHSCORES + " ORDER BY " + HIGHSCORES_COL3 + " ASC";
+        Cursor data = db.rawQuery(query, null);
+
+        return data;
+    }
+
     public void deleteHighscoreByScore(int score) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_HIGHSCORES + " WHERE " + HIGHSCORES_COL3 + " = " + score);
