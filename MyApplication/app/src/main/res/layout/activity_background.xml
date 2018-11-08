@@ -20,11 +20,36 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <fragment android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
-            android:id="@+id/backgroundRecyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fragment android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
+                android:id="@+id/backgroundRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="vertical"
+                android:background="#404040">
+
+                <Button
+                    android:id="@id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="left"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:background="#9f0013"
+                    android:onClick="openSettingsPage"
+                    android:text="back"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
-
 </android.support.constraint.ConstraintLayout>

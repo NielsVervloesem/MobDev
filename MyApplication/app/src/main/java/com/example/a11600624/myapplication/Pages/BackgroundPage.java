@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Components.BackgroundRecyclerViewAdapter;
@@ -19,6 +21,7 @@ import com.example.a11600624.myapplication.R;
 
 public class BackgroundPage extends AppCompatActivity {
     private TextView backgroundHeader;
+    private Button backButton;
     private Typeface tf1;
 
 
@@ -35,9 +38,11 @@ public class BackgroundPage extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         backgroundHeader = findViewById(R.id.background_heading);
+        backButton = findViewById(R.id.backButton);
         tf1 = Typeface.createFromAsset(getAssets(), "font1.ttf");
 
         backgroundHeader.setTypeface(tf1);
+        backButton.setTypeface(tf1);
 
         mRecyclerView = findViewById(R.id.backgroundRecyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -72,5 +77,10 @@ public class BackgroundPage extends AppCompatActivity {
         }, this, databaseHelper.getAllBackgrounds());
 
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    public void openSettingsPage(View view) {
+        Intent startNewActivity = new Intent(this, SettingsPage.class);
+        startActivity(startNewActivity);
     }
 }

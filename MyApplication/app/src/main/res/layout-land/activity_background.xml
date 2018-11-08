@@ -32,12 +32,41 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <fragment
-                android:id="@+id/backgroundRecyclerView"
-                android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="7" />
+                android:layout_weight="7"
+                android:orientation="vertical">
+
+                <fragment
+                    android:id="@+id/backgroundRecyclerView"
+                    android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:orientation="vertical"
+                    android:background="#404040">
+
+                    <Button
+                        android:id="@id/backButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/white"
+                        android:background="#9f0013"
+                        android:textSize="20sp"
+                        android:onClick="openSettingsPage"
+                        android:text="back"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <fragment
                 android:id="@+id/detail"
