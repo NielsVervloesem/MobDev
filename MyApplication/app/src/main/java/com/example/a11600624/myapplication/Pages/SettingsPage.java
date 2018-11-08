@@ -31,7 +31,7 @@ public class SettingsPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instellingen_page);
+        setContentView(R.layout.activity_settings_page);
 
         globalVariable = (GlobalSettings) getApplicationContext();
 
@@ -91,7 +91,7 @@ public class SettingsPage extends AppCompatActivity {
     }
 
     public void openBackGroundSelector(View view) {
-        Intent i = new Intent(this, BackgroundMasterDetail.class);
+        Intent i = new Intent(this, BackgroundPage.class);
         startActivity(i);
 
     }

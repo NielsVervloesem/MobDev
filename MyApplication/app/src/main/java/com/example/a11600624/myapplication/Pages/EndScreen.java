@@ -31,7 +31,7 @@ public class EndScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_endscreenpage);
+        setContentView(R.layout.activity_endscreen_page);
 
         status = findViewById(R.id.status);
         globalVariable = (GlobalSettings) getApplicationContext();

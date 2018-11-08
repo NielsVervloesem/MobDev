@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startNewActivity);
     }
 
-    public void openInstellingenPage(View view) {
+    public void openSettingsPage(View view) {
         Intent startNewActivity = new Intent(this, SettingsPage.class);
         startActivity(startNewActivity);
     }

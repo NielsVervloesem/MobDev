@@ -1,49 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="20dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/background_heading"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Landscape" />
+                android:layout_height="50dp"
+                android:background="#9f0013"
+                android:gravity="center"
+                android:text="CHOOSE A THEME"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            >
+            android:orientation="horizontal">
 
-            <!-- TODO 2A. ADD FRAGMENT TO TO LAYOUT FILE -->
-            <fragment android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
-                android:id="@+id/list"
-                android:layout_width="0dp"
-                android:layout_weight="5"
-                android:layout_height="100dp"/>
-            <!-- END -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:orientation="vertical">
 
-            <!-- TODO 2B. ADD FRAGMENT TO TO LAYOUT FILE -->
-            <fragment android:name="com.example.a11600624.myapplication.Fragments.BackgroundDetailFragment"
+                <fragment
+                    android:id="@+id/backgroundRecyclerView"
+                    android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:orientation="vertical"
+                    android:background="#404040">
+
+                    <Button
+                        android:id="@id/backButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/white"
+                        android:background="#9f0013"
+                        android:textSize="20sp"
+                        android:onClick="openSettingsPage"
+                        android:text="back"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <fragment
                 android:id="@+id/detail"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="100dp"/>
-            <!-- END -->
+                android:name="com.example.a11600624.myapplication.Fragments.BackgroundDetailFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3" />
 
         </LinearLayout>
-
-    </RelativeLayout>
-
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
