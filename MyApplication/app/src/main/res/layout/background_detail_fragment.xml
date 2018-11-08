@@ -4,25 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.BackgroundDetailFragment">
+    tools:context=".Fragments.BackgroundDetailFragment"
+    android:background="#202020">
 
     <LinearLayout
+        android:id="@+id/linear_layout_background"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textViewTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Je hebt geklikt op:" />
+            android:orientation="vertical"
+            android:layout_weight="90">
 
-        <EditText
-            android:id="@+id/editTextItem"
+            <TextView
+                android:id="@+id/background_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_margin="20dp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/background_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_margin="20dp"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="" />
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#9f0013"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:width="150dp"
+                android:layout_margin="20dp"
+                android:text="Set Background"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

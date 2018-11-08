@@ -106,7 +106,7 @@
                     android:layout_margin="10dp"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:onClick="openInstellingenPage"
+                    android:onClick="openSettingsPage"
                     android:background="#9f0013"
                     android:text="@string/settings"
                     android:layout_gravity="center_horizontal"/>

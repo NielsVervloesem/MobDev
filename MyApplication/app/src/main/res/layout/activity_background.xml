@@ -9,8 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/background_heading"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#9f0013"
+            android:gravity="center"
+            android:text="CHOOSE A THEME"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
         <fragment android:name="com.example.a11600624.myapplication.Fragments.BackgroundListFragment"
-            android:id="@+id/list"
+            android:id="@+id/backgroundRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

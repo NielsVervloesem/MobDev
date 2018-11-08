@@ -2,7 +2,9 @@ package com.example.a11600624.myapplication.Models;
 
 import android.app.Application;
 
-public class Background extends Application {
+import java.io.Serializable;
+
+public class Background extends Application implements Serializable {
     private String title;
     private String description;
     private int imageSource;
