@@ -40,11 +40,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_margin="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/white"
                 android:background="#9f0013"
                 android:onClick="openMainPage"
-                android:text="@string/back" />
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
