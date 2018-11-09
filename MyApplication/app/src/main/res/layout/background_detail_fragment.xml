@@ -29,14 +29,20 @@
                 android:layout_margin="20dp"
                 android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/background_description"
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:layout_margin="20dp"
-                android:textColor="@color/white" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/background_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:layout_margin="20dp"
+                    android:textColor="@color/white" />
+            </android.support.v4.widget.NestedScrollView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -57,7 +63,6 @@
                 android:width="150dp"
                 android:layout_margin="20dp"
                 android:text="Set Background"
-                android:onClick="setBackground"
                 />
 
         </LinearLayout>

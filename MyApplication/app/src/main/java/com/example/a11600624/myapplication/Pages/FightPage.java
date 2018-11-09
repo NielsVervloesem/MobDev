@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -45,6 +46,11 @@ public class FightPage extends AppCompatActivity {
 
     private TextView myDamageText;
     private TextView oppDamageText;
+
+    private Typeface tf1;
+
+    Button hitButton;
+    Button fightButton;
 
     TextView time;
     TextView score;
@@ -108,6 +114,13 @@ public class FightPage extends AppCompatActivity {
         opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
         oppDamageText = findViewById(R.id.oppDamage);
         myDamageText = findViewById(R.id.myDamage);
+
+        fightButton = findViewById(R.id.start);
+        hitButton = findViewById(R.id.click);
+
+        tf1 = Typeface.createFromAsset(getAssets(), "font1.ttf");
+        fightButton.setTypeface(tf1);
+        hitButton.setTypeface(tf1);
 
         Cursor data = databaseHelper.getCharacterById(SelectCharacterPage.id + 1);
 
@@ -252,16 +265,16 @@ public class FightPage extends AppCompatActivity {
     private void updateHealth() {
         double modifier = globalVariable.getModifier();
 
-        int myDamage = rand.nextInt(clicksCounter + 1) + 10;
-        int oppenentDamage = (int) (modifier * (rand.nextInt(clicksCounter + 1) + 10));
+        int myDamage = rand.nextInt(clicksCounter + 1) + 30;
+        int oppenentDamage = (int) (modifier * (rand.nextInt(clicksCounter + 1) + 30));
 
         myHealth -= oppenentDamage;
         oppHealth -= myDamage;
 
         opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
         characterHealth.setText(myHealth + getString(R.string.maxHealth));
-        oppDamageText.setText(myDamage + getString(R.string.damage));
-        myDamageText.setText(oppenentDamage + getString(R.string.damage));
+        oppDamageText.setText(myDamage +" "+  getString(R.string.damage));
+        myDamageText.setText(oppenentDamage +" "+ getString(R.string.damage));
     }
 
     private void highscoreCheck() {
@@ -332,6 +345,8 @@ public class FightPage extends AppCompatActivity {
                     b.putInt("fightResult", 0);
                 }
             }
+
+            b.putString("charURI",charUri);
             startNewActivity.putExtras(b); //Put your id to your next Intent
             startActivity(startNewActivity);
         }

@@ -29,19 +29,25 @@
                     android:id="@+id/opponentName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:textColor="@color/white"
+
+                    android:textSize="20sp"/>
 
                 <TextView
                     android:id="@+id/oppenentHealth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
 
                 <TextView
                     android:id="@+id/oppDamage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
             </LinearLayout>
 
             <ImageView
@@ -62,30 +68,48 @@
             <TextView
                 android:id="@+id/time"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="" />
+                android:text="Time 1"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="30sp"/>
 
             <Button
                 android:id="@+id/start"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="FIGHT!" />
+                android:text="FIGHT!"
+                android:textColor="@color/white"
+                android:background="#9f0013"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                />
+
+
 
             <Button
                 android:id="@+id/click"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="HIT!" />
+                android:text="HIT!"
+                android:textColor="@color/white"
+                android:background="#9f0013"
+                android:textSize="20sp"
+                android:layout_margin="5dp"/>
 
             <TextView
                 android:id="@+id/score"
+
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="30sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -111,18 +135,24 @@
                     android:id="@+id/characterName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
 
                 <TextView
                     android:id="@+id/characterHealth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
                 <TextView
                     android:id="@+id/myDamage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="" />
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
 
             </LinearLayout>
         </LinearLayout>
