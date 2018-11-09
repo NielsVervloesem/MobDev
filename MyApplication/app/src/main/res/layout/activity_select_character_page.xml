@@ -30,9 +30,9 @@
                android:layout_width="match_parent"
                android:layout_height="50dp"
                android:layout_alignParentTop="true"
-               android:background="#9f0013"
+               android:background="@color/marvelRed"
                android:gravity="center"
-               android:text="SELECT CHARACTER"
+               android:text="@string/select_character"
                android:textColor="@color/white"
                android:textSize="30sp"
                android:textStyle="bold" />
@@ -47,8 +47,8 @@
                android:layout_marginEnd="20dp"
                android:layout_marginRight="20dp"
                android:layout_marginBottom="15dp"
-               android:background="#9f0013"
-               android:text="Fight"
+               android:background="@color/marvelRed"
+               android:text="@string/fight_2"
                android:onClick="openFightPage"
                android:textColor="@color/white"
                android:textSize="20sp" />
@@ -63,9 +63,9 @@
                android:layout_marginStart="20dp"
                android:layout_marginLeft="20dp"
                android:layout_marginBottom="15dp"
-               android:background="#9f0013"
+               android:background="@color/marvelRed"
                android:onClick="openMainPage"
-               android:text="Back"
+               android:text="@string/back"
                android:textColor="@color/white"
                android:textSize="20sp" />
 
