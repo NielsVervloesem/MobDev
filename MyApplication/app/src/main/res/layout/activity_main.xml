@@ -49,7 +49,7 @@
             <Button
                 android:id="@+id/playButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_centerHorizontal="true"
                 android:onClick="openCharacterSelectorPage"
                 android:width="140dp"
@@ -62,7 +62,7 @@
             <Button
                 android:id="@+id/aboutButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/playButton"
                 android:layout_margin="10dp"
@@ -76,7 +76,7 @@
             <Button
                 android:id="@+id/highscoreButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/aboutButton"
                 android:layout_margin="10dp"
@@ -90,7 +90,7 @@
             <Button
                 android:id="@+id/settingsButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_below="@+id/highscoreButton"
                 android:layout_centerHorizontal="true"
                 android:width="140dp"

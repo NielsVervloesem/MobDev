@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button highscoreButton;
     private Button settingsButton;
     private Typeface tf1;
+
     private DatabaseSeeder databaseSeeder;
 
     @Override

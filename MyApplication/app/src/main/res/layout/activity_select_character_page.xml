@@ -64,7 +64,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="15dp"
         android:background="#9f0013"
-        android:onClick="openSettingsPage"
+        android:onClick="openMainPage"
         android:text="Back"
         android:textColor="@color/white"
         android:textSize="20sp" />

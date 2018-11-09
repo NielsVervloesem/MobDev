@@ -14,7 +14,8 @@
             android:id="@+id/background_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="18sp"
             android:gravity="left" />
     </LinearLayout>

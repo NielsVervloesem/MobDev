@@ -5,14 +5,14 @@
     <string name="characterSelectorButton">Play</string>
     <string name="names">name</string>
     <string name="marvel_api_url">https://gateway.marvel.com/v1/public/characters?apikey=1d81280bb5040d5376599647cde6da9e&amp;hash=804f451c2440d22822d02dabc8e88c9c&amp;ts=1</string>
-    <string name="about">About</string>
+    <string name="about">ABOUT</string>
     <string name="save_changes">Save changes</string>
     <string name="mute">MUTE</string>
     <string name="difficulty_level">Difficulty level</string>
     <string name="i_m_a_baby">I\'m a baby!</string>
     <string name="bring_it_on">Bring it on!</string>
     <string name="i_want_my_mommy">I want my mommy</string>
-    <string name="settings">Settings</string>
+    <string name="settings">SETTINGS</string>
     <string name="highscore">Highscore</string>
     <string name="battle_background">Battle Background</string>
 
@@ -30,4 +30,8 @@
     <string name="NewHighscore">New Highscore, enter your name!</string>
     <string name="Ok">OK</string>
     <string name="Cancel">Cancel</string>
+    <string name="back">back</string>
+    <string name="mute_music">Mute music</string>
+    <string name="change_background">Change Background</string>
+    <string name="highscores">HIGHSCORES</string>
 </resources>

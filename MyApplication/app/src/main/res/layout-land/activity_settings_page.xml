@@ -33,78 +33,89 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_margin="10dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mute_music"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
-
-                <CheckBox
-                    android:id="@+id/muteCheckBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mute" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:textSize="16sp"
-                    android:text="@string/difficulty_level" />
-
-                <RadioGroup
-                    android:id="@+id/radio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/radioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/i_m_a_baby" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/bring_it_on" />
-
-                    <RadioButton
-                        android:id="@+id/radioButton3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/i_want_my_mommy" />
-                </RadioGroup>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:textSize="16sp"
-                    android:text="@string/battle_background" />
-
-                <Button
-                    android:id="@+id/backgroundButton"
+                <LinearLayout
                     android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="10dp"
-                    android:onClick="openBackGroundSelector"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:background="@color/marvelRed"
-                    android:text="@string/change_background"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mute_music"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold"/>
+
+                    <CheckBox
+                        android:id="@+id/muteCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mute" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:textSize="16sp"
+                        android:text="@string/difficulty_level" />
+
+                    <RadioGroup
+                        android:id="@+id/radio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/radioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/i_m_a_baby" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/bring_it_on" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/i_want_my_mommy" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:text="@string/battle_background" />
+
+                    <Button
+                        android:id="@+id/backgroundButton"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="openBackGroundSelector"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:background="@color/marvelRed"
+                        android:text="@string/change_background"/>
+                </LinearLayout>
             </LinearLayout>
 
             <RelativeLayout
