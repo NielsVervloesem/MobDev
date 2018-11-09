@@ -55,19 +55,4 @@ public class BackgroundDetailPage extends FragmentActivity {
 
 
     }
-/*
-    public void setBackground(View view) {
-        backgroundURI = item.getImageSource();
-
-        globalVariable = (GlobalSettings) getApplicationContext();
-        globalVariable.setBackground(backgroundURI);
-
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "RAAAAAAAAAAGE" + backgroundURI,
-                Toast.LENGTH_SHORT);
-
-
-        toast.show();
-    }
-    */
 }
