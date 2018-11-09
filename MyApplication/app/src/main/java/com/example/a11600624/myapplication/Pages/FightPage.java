@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a11600624.myapplication.Database.DatabaseHelper;
 import com.example.a11600624.myapplication.Models.GlobalSettings;
@@ -49,27 +50,27 @@ public class FightPage extends AppCompatActivity {
 
     private Typeface tf1;
 
-    Button hitButton;
-    Button fightButton;
+    private Button hitButton;
+    private Button fightButton;
 
-    TextView time;
-    TextView score;
-    Button fight;
-    Button start;
+    private TextView time;
+    private TextView score;
+    private Button fight;
+    private Button start;
 
-    Random rand = new Random();
-    int myHealth = 100;
-    int oppHealth = 100;
+    private Random rand = new Random();
+    private int myHealth = 100;
+    private int oppHealth = 100;
 
-    CountDownTimer timer;
-    int timeLeft;
-    int clicksCounter;
+    private CountDownTimer timer;
+    private int timeLeft;
+    private int clicksCounter;
 
-    GlobalSettings globalVariable = new GlobalSettings();
+    private GlobalSettings globalVariable = new GlobalSettings();
 
-    MediaPlayer mp = new MediaPlayer();
-    String oppUri;
-    String charUri;
+    private MediaPlayer mp = new MediaPlayer();
+    private String oppUri;
+    private String charUri;
 
     private LinearLayout linearLayoutBackground;
 
@@ -151,9 +152,8 @@ public class FightPage extends AppCompatActivity {
         time.setVisibility(View.INVISIBLE);
 
 
-
         linearLayoutBackground = findViewById(R.id.linear_layout_background);
-        if(globalVariable.getBackground() != null) {
+        if (globalVariable.getBackground() != null) {
             linearLayoutBackground.setBackground(globalVariable.getBackground());
         }
 
@@ -273,27 +273,29 @@ public class FightPage extends AppCompatActivity {
 
         opponentHealth.setText(oppHealth + getString(R.string.maxHealth));
         characterHealth.setText(myHealth + getString(R.string.maxHealth));
-        oppDamageText.setText(myDamage +" "+  getString(R.string.damage));
-        myDamageText.setText(oppenentDamage +" "+ getString(R.string.damage));
+        oppDamageText.setText(myDamage + " " + getString(R.string.damage));
+        myDamageText.setText(oppenentDamage + " " + getString(R.string.damage));
     }
 
     private void highscoreCheck() {
-        Cursor data = databaseHelper.getAllHighscoresAsc();
+        Cursor data = databaseHelper.getAllHighscoresDesc();
         Boolean isHighscore = false;
 
-        if (data.getCount() < 15) {
+
+        if (data.getCount() < 10) {
             isHighscore = true;
         } else {
-            if (data.moveToFirst()) {
+            if (data.moveToLast()) {
                 int lowest = data.getInt(data.getColumnIndex("score"));
-               // int id = data.getInt(data.getColumnIndex("ID"));
+                int id = data.getInt(data.getColumnIndex("ID"));
 
                 if (clicksCounter > lowest) {
-                    databaseHelper.deleteHighscoreByScore(lowest);
+                    databaseHelper.deleteHighscoreByScore(id);
                     isHighscore = true;
                 }
             }
         }
+
         data.close();
         promptUser(isHighscore);
     }
@@ -346,8 +348,8 @@ public class FightPage extends AppCompatActivity {
                 }
             }
 
-            b.putString("charURI",charUri);
-            startNewActivity.putExtras(b); //Put your id to your next Intent
+            b.putString("charURI", charUri);
+            startNewActivity.putExtras(b);
             startActivity(startNewActivity);
         }
     }

@@ -41,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_CHARACTERS + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + CHARACTERS_COL2 + " TEXT, " + CHARACTERS_COL3 + " TEXT, " + CHARACTERS_COL4 + " TEXT, " + CHARACTERS_COL5 + " TEXT)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_HIGHSCORES + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + HIGHSCORES_COL2 + " TEXT, " + HIGHSCORES_COL3 + " TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_HIGHSCORES + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " + HIGHSCORES_COL2 + " TEXT, " + HIGHSCORES_COL3 + " INT)");
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_BACKGROUNDS + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + BACKGROUNDS_COL2 + " TEXT, " + BACKGROUNDS_COL3 + " TEXT, " + BACKGROUNDS_COL4 + " TEXT)");
     }
 
@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void deleteHighscoreByScore(int score) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_HIGHSCORES + " WHERE " + HIGHSCORES_COL3 + " = " + score);
+        db.execSQL("DELETE FROM " + TABLE_HIGHSCORES + " WHERE " + HIGHSCORES_COL1 + " = " + score);
     }
 
     public void addHighscore(Highscore highscore) {

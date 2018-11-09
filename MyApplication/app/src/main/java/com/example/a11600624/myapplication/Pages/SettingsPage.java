@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
@@ -113,5 +114,8 @@ public class SettingsPage extends AppCompatActivity {
     public void openMainPage(View view) {
         Intent startNewActivity = new Intent(this, MainActivity.class);
         startActivity(startNewActivity);
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Settings saved!",
+                Toast.LENGTH_SHORT);
     }
 }
