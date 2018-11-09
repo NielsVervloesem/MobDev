@@ -29,12 +29,13 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="50dp"
                 android:textStyle="bold"
-                android:text="@string/marvel_battle_simulator"
+                android:text="Marvel Battle Simulator"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textFontWeight="bold"
                 android:textColor="@color/white"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                 />
 
         </RelativeLayout>
 
@@ -53,7 +54,7 @@
                 android:onClick="openCharacterSelectorPage"
                 android:width="140dp"
                 android:layout_margin="10dp"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:text="@string/characterSelectorButton" />
@@ -67,7 +68,7 @@
                 android:layout_margin="10dp"
                 android:width="140dp"
                 android:onClick="openAboutPage"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:text="@string/aboutButton" />
@@ -81,7 +82,7 @@
                 android:layout_margin="10dp"
                 android:width="140dp"
                 android:onClick="openHighscore"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:text="@string/highscore" />
@@ -97,7 +98,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:onClick="openSettingsPage"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:text="@string/settings" />
         </RelativeLayout>
     </LinearLayout>

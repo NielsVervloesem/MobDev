@@ -13,7 +13,7 @@
           android:id="@+id/highscoreHeading"
           android:layout_width="match_parent"
           android:layout_height="50dp"
-          android:background="@color/marvelRed"
+          android:background="#9f0013"
           android:gravity="center"
           android:text="@string/highscores"
           android:textColor="@color/white"
@@ -37,7 +37,7 @@
              android:layout_margin="10dp"
              android:textSize="20sp"
              android:textColor="@color/white"
-             android:background="@color/marvelRed"
+             android:background="#9f0013"
              android:onClick="openMainPage"
              android:text="@string/back" />
       </LinearLayout>

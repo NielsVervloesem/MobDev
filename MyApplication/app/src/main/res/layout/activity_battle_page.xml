@@ -62,14 +62,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_weight="0.2">
+            android:layout_weight="0.2"
+>
 
             <TextView
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/time_1"
+                android:text="Time 1"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:textAlignment="center"
@@ -80,9 +81,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/fight"
+                android:text="FIGHT!"
                 android:textColor="@color/white"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:textSize="20sp"
                 android:layout_margin="5dp"
                 />
@@ -94,9 +95,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/hit"
+                android:text="HIT!"
                 android:textColor="@color/white"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:textSize="20sp"
                 android:layout_margin="5dp"/>
 

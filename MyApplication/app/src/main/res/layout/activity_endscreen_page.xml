@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/test"
-    android:background="@color/marvelGrey">
+    android:background="@color/marvelGrey"
 
+    >
     <TextView
         android:id="@+id/status"
         android:layout_width="match_parent"
@@ -18,7 +19,9 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:textFontWeight="bold"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+
+        />
 
     <ImageView
         android:id="@+id/characterView"
@@ -44,8 +47,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:width="140dp"
-                android:background="@color/marvelRed"
-                android:text="@string/fight_again"
+                android:background="#9f0013"
+                android:text="Fight Again"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:onClick="fightAgain"/>
@@ -57,8 +60,8 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:width="140dp"
-                android:background="@color/marvelRed"
-                android:text="@string/quit"
+                android:background="#9f0013"
+                android:text="Quit"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:onClick="quit"/>

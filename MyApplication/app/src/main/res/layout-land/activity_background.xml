@@ -19,9 +19,9 @@
                 android:id="@+id/background_heading"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:gravity="center"
-                android:text="@string/choose_a_theme"
+                android:text="CHOOSE A THEME"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -50,7 +50,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="8"
                     android:orientation="vertical"
-                    android:background="@color/marvelGrey">
+                    android:background="#404040">
 
                     <Button
                         android:id="@id/backButton"
@@ -59,7 +59,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="10dp"
                         android:textColor="@color/white"
-                        android:background="@color/marvelRed"
+                        android:background="#9f0013"
                         android:textSize="20sp"
                         android:onClick="openSettingsPage"
                         android:text="@string/back"/>

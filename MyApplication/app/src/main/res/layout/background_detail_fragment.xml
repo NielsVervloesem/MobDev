@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.BackgroundDetailFragment"
-    android:background="@color/marvelGrey">
+    android:background="#202020">
 
     <LinearLayout
         android:id="@+id/linear_layout_background"
@@ -51,20 +51,22 @@
             android:layout_weight="10"
             android:orientation="vertical">
 
+
             <Button
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/marvelRed"
+                android:background="#9f0013"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:width="150dp"
                 android:layout_margin="20dp"
-                android:text="@string/set_background" />
+                android:text="Set Background"
+                />
 
         </LinearLayout>
 
-    </LinearLayout>
 
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
