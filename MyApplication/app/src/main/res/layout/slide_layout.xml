@@ -25,7 +25,7 @@
         android:layout_below="@+id/slideImage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Loading..."
+        android:text="@string/loading"
         android:textSize="28sp"
         android:textColor="@color/white"
         android:textStyle="bold" />
@@ -40,7 +40,7 @@
         android:paddingTop="5dp"
         android:paddingRight="30dp"
         android:paddingBottom="10dp"
-        android:text="Loading..."
+        android:text="@string/loading"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
