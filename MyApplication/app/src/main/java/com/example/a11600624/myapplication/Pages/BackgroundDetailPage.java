@@ -4,17 +4,13 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.a11600624.myapplication.Models.Background;
 import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
-
-import java.net.URI;
 
 public class BackgroundDetailPage extends FragmentActivity {
     private LinearLayout linearLayoutBackground;
@@ -24,7 +20,6 @@ public class BackgroundDetailPage extends FragmentActivity {
 
     private Typeface tf1;
     private Background item;
-
 
     private int backgroundURI;
     GlobalSettings globalVariable = new GlobalSettings();
@@ -51,8 +46,5 @@ public class BackgroundDetailPage extends FragmentActivity {
         backgroundTitle.setText(item.getTitle());
         backgroundDescription.setText(item.getDescription());
         backgroundURI = item.getImageSource();
-
-
-
     }
 }
