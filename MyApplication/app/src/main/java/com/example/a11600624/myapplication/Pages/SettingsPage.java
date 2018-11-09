@@ -3,6 +3,7 @@
 package com.example.a11600624.myapplication.Pages;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,16 +12,22 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
 
 public class SettingsPage extends AppCompatActivity {
-
+    private TextView settingsHeading;
     private Switch aSwitch;
     private CheckBox checkBox;
     private RadioGroup radioGroup;
-    private Button button;
+
+    private Button backgroundButton;
+    private Button backButton;
+    private Button saveButton;
+
+    private Typeface tf1;
 
     RadioButton radioButton;
     RadioButton radioButton2 ;
@@ -35,15 +42,25 @@ public class SettingsPage extends AppCompatActivity {
 
         globalVariable = (GlobalSettings) getApplicationContext();
 
+        settingsHeading = findViewById(R.id.settingsHeading);
+
         checkBox = findViewById(R.id.muteCheckBox);
-        radioGroup = (RadioGroup) findViewById(R.id.radio);
+        radioGroup = findViewById(R.id.radio);
 
         radioButton = findViewById(R.id.radioButton);
         radioButton2 = findViewById(R.id.radioButton2);
         radioButton3 = findViewById(R.id.radioButton3);
 
+        backgroundButton = findViewById(R.id.backgroundButton);
+        backButton = findViewById(R.id.backButton);
+        saveButton = findViewById(R.id.saveChanges);
 
-        button = findViewById(R.id.saveChanges);
+        tf1 = Typeface.createFromAsset(getAssets(), "font1.ttf");
+
+        settingsHeading.setTypeface(tf1);
+        backgroundButton.setTypeface(tf1);
+        backButton.setTypeface(tf1);
+        saveButton.setTypeface(tf1);
 
         if (globalVariable.isMute()) {
             checkBox.setChecked(true);
@@ -93,6 +110,10 @@ public class SettingsPage extends AppCompatActivity {
     public void openBackGroundSelector(View view) {
         Intent i = new Intent(this, BackgroundPage.class);
         startActivity(i);
+    }
 
+    public void openMainPage(View view) {
+        Intent startNewActivity = new Intent(this, MainActivity.class);
+        startActivity(startNewActivity);
     }
 }

@@ -24,7 +24,6 @@ public class BackgroundPage extends AppCompatActivity {
     private Button backButton;
     private Typeface tf1;
 
-
     private RecyclerView mRecyclerView;
     private BackgroundRecyclerViewAdapter mAdapter;
     private LinearLayoutManager mLayoutManager;

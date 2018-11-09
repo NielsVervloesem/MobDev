@@ -10,7 +10,7 @@ public class DisplayAboutPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_about_page);
+        setContentView(R.layout.activity_about_page);
 
 /*
         TextView tx = (TextView)findViewById(R.id.aboutText);
