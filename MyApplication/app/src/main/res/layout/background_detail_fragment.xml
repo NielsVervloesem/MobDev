@@ -45,6 +45,7 @@
             android:layout_weight="10"
             android:orientation="vertical">
 
+
             <Button
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
@@ -55,7 +56,10 @@
                 android:textSize="20dp"
                 android:width="150dp"
                 android:layout_margin="20dp"
-                android:text="Set Background"/>
+                android:text="Set Background"
+                android:onClick="setBackground"
+                />
+
         </LinearLayout>
 
 

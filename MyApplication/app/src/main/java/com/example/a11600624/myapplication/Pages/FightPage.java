@@ -1,9 +1,11 @@
 package com.example.a11600624.myapplication.Pages;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.a11600624.myapplication.Database.DatabaseHelper;
@@ -62,6 +65,8 @@ public class FightPage extends AppCompatActivity {
     String oppUri;
     String charUri;
 
+    private LinearLayout linearLayoutBackground;
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -83,6 +88,7 @@ public class FightPage extends AppCompatActivity {
     }
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,6 +136,14 @@ public class FightPage extends AppCompatActivity {
         fight.setEnabled(false);
         score.setVisibility(View.INVISIBLE);
         time.setVisibility(View.INVISIBLE);
+
+
+
+        linearLayoutBackground = findViewById(R.id.linear_layout_background);
+        if(globalVariable.getBackground() != null) {
+            linearLayoutBackground.setBackground(globalVariable.getBackground());
+        }
+
 
         if (savedInstanceState != null) {
             characterHealth.setText(savedInstanceState.getString("characterHealth"));
@@ -259,6 +273,8 @@ public class FightPage extends AppCompatActivity {
         } else {
             if (data.moveToFirst()) {
                 int lowest = data.getInt(data.getColumnIndex("score"));
+               // int id = data.getInt(data.getColumnIndex("ID"));
+
                 if (clicksCounter > lowest) {
                     databaseHelper.deleteHighscoreByScore(lowest);
                     isHighscore = true;

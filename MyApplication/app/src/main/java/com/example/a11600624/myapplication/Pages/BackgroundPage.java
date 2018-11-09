@@ -83,4 +83,7 @@ public class BackgroundPage extends AppCompatActivity {
         Intent startNewActivity = new Intent(this, SettingsPage.class);
         startActivity(startNewActivity);
     }
+
+
+
 }

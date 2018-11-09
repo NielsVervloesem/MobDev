@@ -32,7 +32,6 @@ public class SettingsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
-
         globalVariable = (GlobalSettings) getApplicationContext();
 
         checkBox = findViewById(R.id.muteCheckBox);
@@ -67,7 +66,6 @@ public class SettingsPage extends AppCompatActivity {
     }
 
     public void saveChanges(View view) {
-
         if (checkBox.isChecked()) {
             globalVariable.setMute(true);
         } else {

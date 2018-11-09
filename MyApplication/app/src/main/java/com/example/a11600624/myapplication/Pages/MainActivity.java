@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.a11600624.myapplication.Database.DatabaseSeeder;
+import com.example.a11600624.myapplication.Models.GlobalSettings;
 import com.example.a11600624.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {

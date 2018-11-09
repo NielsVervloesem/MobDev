@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#202020">
+    android:background="@drawable/avengers_background"
+    >
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/avengers_background">
 
+    <!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:weightSum="100">
+        android:weightSum="100"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -152,9 +163,9 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:id="@+id/myHealth"/>
-
                     <TextView
                         android:id="@+id/myDamage"
+                        android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="" />
@@ -164,4 +175,6 @@
 
         </RelativeLayout>
     </LinearLayout>
+
+    -->
 </RelativeLayout>
